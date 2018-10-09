@@ -33,28 +33,23 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
 
   __BAD__:
   `SELECT ksr.backings AS b`
-  
-### Naming
 
-(See [Oracle Base: Naming Conventions](https://oracle-base.com/articles/misc/naming-conventions) for a comprehensive reference)
+* Variable naming
+  ```
+  Package Global Variables: g_variable_name
+  Local Variables         : l_variable_name
+  Types                   : t_type_name
+  Cursors                 : c_cursor_name
+  Exceptions              : e_exception_name
+  Parameters        	: p_parameter_name
+  ```
 
-Variables:
-
-```
-Package Global Variables: g_variable_name
-Local Variables         : l_variable_name
-Types                   : t_type_name
-Cursors                 : c_cursor_name
-Exceptions              : e_exception_name
-Parameters        		: p_parameter_name
-```
-
-Files
-```
-.pks – Package specification.
-.pkb – Package body.
-.sql – Everything else.
-```
+* File naming
+  ```
+  .pks – Package specification.
+  .pkb – Package body.
+  .sql – Everything else.
+  ```
 
 ### Logging
 (See [Oracel Base: Instrumenting Your PL/SQL Code](https://oracle-base.com/articles/misc/instrumenting-your-plsql-code) For reference)
