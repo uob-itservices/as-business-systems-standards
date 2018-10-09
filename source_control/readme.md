@@ -76,3 +76,10 @@ we can now clean up by deleting the release branch:
 ```shell
 $ git branch -d release-1.2 # delete the release branch
 ```
+
+## Tools
+
+Rather than using the command line there are a number of GUI tools you can use to work with Git, here are some examples:
+
+* [Git Extensions](https://gitextensions.github.io/)
+* [GitKraken](https://www.gitkraken.com/)
