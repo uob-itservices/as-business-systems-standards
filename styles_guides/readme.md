@@ -4,7 +4,7 @@ Style guides provide guidance around the format of the code you write. The idea 
 
 #### PL/SQL
 
-*  [PL*SQL Style Guide](PL*SQL Style Guide)
+*  [PL*SQL Style Guide](pl_sql.md)
 
 #### Java
 
