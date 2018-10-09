@@ -117,8 +117,8 @@ SELECT
     projects.name AS project_name,
     COUNT(backings.id) AS backings_count
 FROM 
-	ksr.backings AS backings
-	INNER JOIN ksr.projects AS projects ON ...
+    ksr.backings AS backings
+    INNER JOIN ksr.projects AS projects ON ...
 ```
 
 Always use `AS` to rename columns:
@@ -166,9 +166,9 @@ SELECT
     projects.name AS project_name,
     COUNT(backings.id) AS backings_count
 FROM 
-	ksr.projects AS projects
-	INNER JOIN ksr.backings AS backings 
-	ON backings.project_id = projects.id
+    ksr.projects AS projects
+    INNER JOIN ksr.backings AS backings 
+    ON backings.project_id = projects.id
 	...
 ```
 
@@ -317,18 +317,17 @@ AS
    FUNCTION get_sal RETURN NUMBER;
    
    FUNCTION get_student(
-   	    p_id  IN student.id%TYPE,
-        p_dep IN student.department%TYPE)
-        RETURN t_student;
+       p_id  IN student.id%TYPE,
+       p_dep IN student.department%TYPE)
+       RETURN t_student;
 END pkw_cust_sal;
 /
 
 CREATE OR REPLACE PACKAGE BODY pkw_cust_sal
 AS
+    ...
 
-	...
-
-	----------------------------------------------------------------------------
+    ----------------------------------------------------------------------------
     FUNCTION get_student (
     	p_id  IN student.id%TYPE,
         p_dep IN student.department%TYPE)
@@ -340,7 +339,7 @@ AS
     	...
     END get_student;
 
-	...
+    ...
 
 END pkw_cust_sal;
 ```
