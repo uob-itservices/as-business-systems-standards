@@ -244,20 +244,19 @@ WHERE
 
 ```sql
 CASE 
-    WHEN category = 'Art'
-    THEN backer_id
+    WHEN category = 'Art' THEN backer_id
     ELSE NULL
 END
 ```
 
 ### `COMMIT`, `ROLLBACK`
 
-A function or procedure should take a varialbe to speiciy this behaviour. This means it can be controlled by the calling code and makes it more flexable.
+A function or procedure should take a parameter to speiciy this behaviour. This means it can be controlled by the calling code and makes it more flexable.
 
-In you package specifcy constantas for commit, rollback and default:
+In you package specifcy constantas for commit and rollback:
 
 ```sql
-g_COMMIT    CONSTANT NUMBER := 1;
+g_COMMIT   CONSTANT NUMBER := 1;
 g_ROLLBACK CONSTANT NUMBER := -1;
 ```
 
