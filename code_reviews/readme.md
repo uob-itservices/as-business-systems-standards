@@ -4,7 +4,7 @@ These guidelines are addapted from [Code Review Checklist – To Perform Effecti
 
 ## Principals
 
-When writing and reviewing code, concider the following points:
+When writing and reviewing code, consider the following points:
 
 1. Am I able to understand the code easily?
 2. Is the code written following the coding standards/guidelines?
@@ -35,7 +35,7 @@ a. __Maintainability__ – The application should require the least amount of ef
   1. __Readability__: Code should be self explanatory. Use appropriate names for variables, functions and classes.
   2. __Testability__: The code should be easy to test. Refactor into a separate function if required.
   3. __Debuggability__: Provide support to log the flow of control, parameters and exceptions to find root causes of bugs easily.
-  4. __Configurability__: Keep the configurable values separete in. Do not hard code optional values.
+  4. __Configurability__: Keep the configurable values separate in. Do not hard code optional values.
   
 b. __Reusability__
 
@@ -46,7 +46,7 @@ c. __Reliability__ – Exception handling and cleanup resources.
 
 d. __Extensibility__ – Easy to add enhancements with minimal changes to the existing code.
 
-e. __Security__ – Authentication, authorization, input data validation against security threats such as SQL injection attacts and encrypting sensitive data (passwords, credit card information etc.)
+e. __Security__ – Authentication, authorization, input data validation against security threats such as SQL injection attacks and encrypting sensitive data (passwords, credit card information etc.)
 
 f. __Performance__
 
@@ -61,7 +61,7 @@ h. __Usability__ – Put yourself in the shoes of a end-user and ascertain, if t
 ### Actions
 
 * Are there any changes that should be made?
-* Process improcement
-   * Should the style guide be ammended?
+* Process improvement
+   * Should the style guide be amended?
    * Should any new libraries be created?
    * Should any new documentation be created?
