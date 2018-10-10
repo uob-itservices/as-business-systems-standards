@@ -14,8 +14,13 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
 ### General stuff
 
 * No tabs. 4 spaces per indent.
+
 * No trailing whitespace.
+
+* Unix line endings
+
 * Always capitalize SQL keywords (e.g., `SELECT` or `AS`)
+
 * Variable names should be underscore separated:
 
   __GOOD__:
@@ -25,7 +30,9 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
   `SELECT COUNT(*) AS backersCount`
 
 * Comments should go near the top of your query, or at least near the closest `SELECT`
+
 * Try to only comment on things that aren't obvious about the query (e.g., why a particular ID is hardcoded, etc.)
+
 * Don't use single letter variable names be as descriptive as possible given the context:
 
   __GOOD__:
@@ -34,7 +41,7 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
   __BAD__:
   `SELECT ksr.backings AS b`
 
-* Variable naming
+* Variable naming:
   ```
   Package Global Variables: g_variable_name
   Local Variables         : l_variable_name
@@ -44,41 +51,12 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
   Parameters        	: p_parameter_name
   ```
 
-* File naming
+* File naming:
   ```
   .pks – Package specification.
   .pkb – Package body.
   .sql – Everything else.
   ```
-
-### Logging
-(See [Oracel Base: Instrumenting Your PL/SQL Code](https://oracle-base.com/articles/misc/instrumenting-your-plsql-code) For reference)
-
-Use the `DSP` package to add logging to your code. Do not use `DBMS_OUTPUT`.
-
-__GOOD__:
-```sql
-SELECT COUNT(*) INTO l_count FROM blah;
-DSP.line('package.procedure', 'l_count=' || l_count);
-```
-
-__BAD__:
-```sql
-SELECT COUNT(*) INTO l_count FROM blah;
-DBMS_OUTPUT.PUT_LINE('package.procedure l_count=' || l_count);
-```
-Add a logging header and footer to each function or prcedure.
-
-```sql
-PROCEDURE proc_2 (p_id IN NUMBER) AS
-BEGIN
-  DSP.line('package.proc_2', 'Started - p_id=' || p_id);
-
-  SELECT COUNT(*) INTO l_count FROM blah;
-
-  DSP.line('package.proc_2', 'Finished - p_id=' || p_id);
-END proc_2;
-```
 
 ### `SELECT`
 
@@ -163,7 +141,7 @@ __GOOD__:
 
 ```sql
 SELECT
-    projects.name AS project_name,
+    projects.name      AS project_name,
     COUNT(backings.id) AS backings_count
 FROM 
     ksr.projects AS projects
@@ -176,12 +154,12 @@ __BAD__:
 
 ```sql
 SELECT
-    projects.name AS project_name,
+    projects.name      AS project_name,
     COUNT(backings.id) AS backings_count
 FROM ksr.projects AS projects, ksr.backings AS backings
 WHERE
     backings.project_id = projects.id
-   ...
+    ...
 ```
 
 ### `JOIN`
@@ -194,7 +172,7 @@ __GOOD__:
 
 ```sql
 SELECT
-    projects.name AS project_name,
+    projects.name      AS project_name,
     COUNT(backings.id) AS backings_count
 FROM 
     ksr.projects AS projects
@@ -209,7 +187,7 @@ __BAD__:
 
 ```sql
 SELECT
-    projects.name AS project_name,
+    projects.name      AS project_name,
     COUNT(backings.id) AS backings_count
 FROM 
     ksr.projects AS projects
@@ -224,7 +202,7 @@ Additional filters in the `INNER JOIN` go on new indented lines:
 
 ```sql
 SELECT
-    projects.name AS project_name,
+    projects.name      AS project_name,
     COUNT(backings.id) AS backings_count
 FROM 
     ksr.projects AS projects
@@ -238,7 +216,7 @@ The `ON` keyword and condition goes on a  new line:
 
 ```sql
 SELECT
-    projects.name AS project_name,
+    projects.name      AS project_name,
     COUNT(backings.id) AS backings_count
 FROM 
     ksr.projects AS projects
@@ -272,6 +250,45 @@ CASE
 END
 ```
 
+### `COMMIT`, `ROLLBACK`
+
+A function or procedure should take a varialbe to speiciy this behaviour. This means it can be controlled by the calling code and makes it more flexable.
+
+In you package specifcy constantas for commit, rollback and default:
+
+```sql
+g_COMMIT    CONSTANT NUMBER := 1;
+g_ROLLBACK CONSTANT NUMBER := -1;
+```
+
+Pass this value as a paramiter to functions and procedures:
+
+```sql
+PROCEDURE get_transactions(p_commit IN NUMBER)
+```
+
+It can then be used like this:
+
+```sql
+IF p_commit = g_COMMIT THEN
+    DSP.line('package.get_transactions', 'Commit');
+    COMMIT;
+ELSIF p_commit = g_ROLLBACK THEN
+    DSP.line('package.get_transactions', 'Rollback');
+    ROLLBACK;
+END IF;
+```
+
+## Practices
+
+### Functions and procedures
+
+Speficy functions and procedures appropriately. Do not just make everything a procedure.
+
+### Single responsibility principal
+
+The [Single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) - each block of code should do one thing, and one thing well.
+
 ### `CASE` expressions
 
 This makes assigning a varable based of a number of options cleaner. Use this method over if-else statements
@@ -294,16 +311,16 @@ IF (deptno = 10) THEN
 ELSIF (deptno = 20) THEN
     dept_desc := 'Research';
 ELSE
-    ELSE 'Unknown';
+    dept_desc := 'Unknown';
 END IF;
 ```
 
-### Packages
+## Packages
 
 * Package names should start with `pkw_`
-* Single parameter functions and procedures are written on a single line
-* Multiple parameters functions and procedure have parameters separate lines
-* All parameters must have a declaration: `in`, `out`, `nocopy`
+* Single parameter functions and procedures definitions are written on a single line
+* Multiple parameters functions and procedure definitions have parameters separate lines
+* All parameters must have a declaration specified: `in`, `out`, `nocopy` and these should align vertically 
 
 ```sql
 CREATE OR REPLACE PACKAGE pkw_cust_sal 
@@ -311,8 +328,8 @@ AS
     PROCEDURE find_sal(c_id IN student.id%type);
     
     PROCEDURE find_student(
-        p_id  IN student.id%TYPE,
-        p_dep IN student.department%TYPE);
+        p_id  IN  student.id%TYPE,
+        p_dep OUT student.department%TYPE);
    
    FUNCTION get_sal RETURN NUMBER;
    
@@ -342,6 +359,40 @@ AS
     ...
 
 END pkw_cust_sal;
+/
+```
+
+## Logging
+
+(See [Oracel Base: Instrumenting Your PL/SQL Code](https://oracle-base.com/articles/misc/instrumenting-your-plsql-code) For reference)
+
+Use the `DSP` package to add logging to your code. __DO NOT USE__ use `DBMS_OUTPUT`.
+
+__GOOD__:
+
+```sql
+SELECT COUNT(*) INTO l_count FROM blah;
+DSP.line('package.procedure', 'l_count=' || l_count);
+```
+
+__BAD__:
+
+```sql
+SELECT COUNT(*) INTO l_count FROM blah;
+DBMS_OUTPUT.PUT_LINE('package.procedure l_count=' || l_count);
+```
+
+Add a logging header and footer to each function or prcedure.
+
+```sql
+PROCEDURE proc_2 (p_id IN NUMBER) AS
+BEGIN
+    DSP.line('package.proc_2', 'Started - p_id=' || p_id);
+
+    SELECT COUNT(*) INTO l_count FROM blah;
+
+    DSP.line('package.proc_2', 'Finished - p_id=' || p_id);
+END proc_2;
 ```
 
 ## Tips
