@@ -283,6 +283,10 @@ END IF;
 
 ## Practices
 
+### Commented code
+
+Delete commented code. If you are worried about losing it, it should be stored in version contol. Leaving commented out code in your source leads to code rot.
+
 ### Triggers
 
 __DO NOT USE TRIGGERS__
