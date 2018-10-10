@@ -147,7 +147,7 @@ FROM
     ksr.projects AS projects
     INNER JOIN ksr.backings AS backings 
     ON backings.project_id = projects.id
-	...
+    ...
 ```
 
 __BAD__:
@@ -209,7 +209,7 @@ FROM
     INNER JOIN ksr.backings AS backings
     ON projects.id = backings.project_id
     AND backings.project_country != 'US'
-...
+    ...
 ```
 
 The `ON` keyword and condition goes on a  new line:
@@ -222,7 +222,7 @@ FROM
     ksr.projects AS projects
     INNER JOIN ksr.backings AS backings 
     ON projects.id = backings.project_id
-...
+    ...
 ```
 
 ### `WHERE`
@@ -233,11 +233,12 @@ Multiple `WHERE` clauses should go on different lines and begin with the SQL ope
 SELECT
     name,
     goal
-FROM ksr.projects AS projects
+FROM 
+	ksr.projects AS projects
 WHERE
     country = 'US'
     AND deadline >= '2015-01-01'
-...
+    ...
 ```
 
 ### `CASE`
@@ -251,9 +252,9 @@ END
 
 ### `COMMIT`, `ROLLBACK`
 
-A function or procedure should take a parameter to speiciy this behaviour. This means it can be controlled by the calling code and makes it more flexable.
+A function or procedure should take a parameter to specify this behavior. This means it can be controlled by the calling code and makes it more flexible.
 
-In you package specifcy constantas for commit and rollback:
+In your package specify constantans for commit and rollback:
 
 ```sql
 g_COMMIT   CONSTANT NUMBER := 1;
@@ -349,7 +350,7 @@ AS
         p_dep IN student.department%TYPE)
     ----------------------------------------------------------------------------
         RETURN t_student
-    IS
+    AS
         l_stu t_student;
     BEGIN
     	...
@@ -381,10 +382,11 @@ SELECT COUNT(*) INTO l_count FROM blah;
 DBMS_OUTPUT.PUT_LINE('package.procedure l_count=' || l_count);
 ```
 
-Add a logging header and footer to each function or prcedure.
+Add a logging header and footer to each function or procedure.
 
 ```sql
-PROCEDURE proc_2 (p_id IN NUMBER) AS
+PROCEDURE proc_2 (p_id IN NUMBER) 
+AS
 BEGIN
     DSP.line('package.proc_2', 'Started - p_id=' || p_id);
 
