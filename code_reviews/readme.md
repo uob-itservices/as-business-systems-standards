@@ -36,7 +36,7 @@ When writing and reviewing code, consider the following points:
 
 ### Non Functional requirements
 
-__Maintainability__
+#### Maintainability
 
 The application should require the least amount of effort to support in the near future. It should be easy to identify and fix a defect.
 
@@ -45,34 +45,34 @@ The application should require the least amount of effort to support in the near
   - [ ] 3. __Debuggability__: Provide support to log the flow of control, parameters and exceptions to find root causes of bugs easily.
   - [ ] 4. __Configurability__: Keep the configurable values separate in. Do not hard code optional values.
   
-__Reusability__
+#### Reusability
 
   - [ ] 1. DRY (Do not Repeat Yourself): The same code should not be repeated more than twice.
   - [ ] 2. Consider reusable services, functions and components.
   
-__Reliability__
+#### Reliability
 
 - [ ] Exception handling and cleanup resources.
 
-__Extensibility__
+#### Extensibility
 
 - [ ] Easy to add enhancements with minimal changes to the existing code.
 
-__Security__
+#### Security
 
 - [ ] Authentication, authorization, input data validation against security threats such as SQL injection attacks and encrypting sensitive data (passwords, credit card information etc.)
 
-__Performance__
+#### Performance
 
   - [ ] 1. Use a data type that best suits the needs.
   - [ ] 2. Lazy loading, asynchronous and parallel processing.
   - [ ] 3. Caching and session/application data.
   
-__Scalability__
+#### Scalability
 
 - [ ] Consider if it supports a large user base/data? Can this solution scale to meet those demands?
 
-__Usability__
+#### Usability
 
 - [ ] Put yourself in the shoes of a end-user and ascertain, if the user interface/API is easy to understand and use.
 
