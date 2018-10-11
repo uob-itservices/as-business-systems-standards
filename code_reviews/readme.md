@@ -36,7 +36,9 @@ When writing and reviewing code, consider the following points:
 
 ### Non Functional requirements
 
-__Maintainability__ – The application should require the least amount of effort to support in the near future. It should be easy to identify and fix a defect.
+__Maintainability__
+
+The application should require the least amount of effort to support in the near future. It should be easy to identify and fix a defect.
 
   - [ ] 1. __Readability__: Code should be self explanatory. Use appropriate names for variables, functions and classes.
   - [ ] 2. __Testability__: The code should be easy to test. Refactor into a separate function if required.
