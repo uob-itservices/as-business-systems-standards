@@ -36,41 +36,41 @@ When writing and reviewing code, consider the following points:
 
 ### Non Functional requirements
 
-a. __Maintainability__ – The application should require the least amount of effort to support in the near future. It should be easy to identify and fix a defect.
+__Maintainability__ – The application should require the least amount of effort to support in the near future. It should be easy to identify and fix a defect.
 
   - [ ] 1. __Readability__: Code should be self explanatory. Use appropriate names for variables, functions and classes.
   - [ ] 2. __Testability__: The code should be easy to test. Refactor into a separate function if required.
   - [ ] 3. __Debuggability__: Provide support to log the flow of control, parameters and exceptions to find root causes of bugs easily.
   - [ ] 4. __Configurability__: Keep the configurable values separate in. Do not hard code optional values.
   
-b. __Reusability__
+__Reusability__
 
   - [ ] 1. DRY (Do not Repeat Yourself): The same code should not be repeated more than twice.
   - [ ] 2. Consider reusable services, functions and components.
   
-c. __Reliability__
+__Reliability__
 
 - [ ] Exception handling and cleanup resources.
 
-d. __Extensibility__
+__Extensibility__
 
 - [ ] Easy to add enhancements with minimal changes to the existing code.
 
-e. __Security__
+__Security__
 
 - [ ] Authentication, authorization, input data validation against security threats such as SQL injection attacks and encrypting sensitive data (passwords, credit card information etc.)
 
-f. __Performance__
+__Performance__
 
   - [ ] 1. Use a data type that best suits the needs.
   - [ ] 2. Lazy loading, asynchronous and parallel processing.
   - [ ] 3. Caching and session/application data.
   
-g. __Scalability__
+__Scalability__
 
 - [ ] Consider if it supports a large user base/data? Can this solution scale to meet those demands?
 
-h. __Usability__ 
+__Usability__
 
 - [ ] Put yourself in the shoes of a end-user and ascertain, if the user interface/API is easy to understand and use.
 
