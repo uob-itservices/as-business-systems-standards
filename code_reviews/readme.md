@@ -58,10 +58,10 @@ g. __Scalability__ – Consider if it supports a large user base/data? Can this 
 
 h. __Usability__ – Put yourself in the shoes of a end-user and ascertain, if the user interface/API is easy to understand and use.
 
-### Actions
+### Outcomes
 
-* Are there any changes that should be made?
-* Process improvement
-   * Should the style guide be amended?
+* Are there any changes that should be made to the solution?
+* Process improvement:
+   * Should a style guide be amended?
    * Should any new libraries be created?
    * Should any new documentation be created?
