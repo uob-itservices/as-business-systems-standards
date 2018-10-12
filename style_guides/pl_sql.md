@@ -45,7 +45,7 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
   
 ### Naming Conventions
 
-See [Oracle-Base: Naming Conventions](https://oracle-base.com/articles/misc/naming-conventions) for a full reference.
+See [Oracle-Base: Naming Conventions](https://oracle-base.com/articles/misc/naming-conventions) for reference.
 
 * Variable naming:
   ```
@@ -389,7 +389,7 @@ END pkw_cust_sal;
 
 ## Logging
 
-(See [Oracel Base: Instrumenting Your PL/SQL Code](https://oracle-base.com/articles/misc/instrumenting-your-plsql-code) For reference)
+See [Oracel-Base: Instrumenting Your PL/SQL Code](https://oracle-base.com/articles/misc/instrumenting-your-plsql-code) For reference.
 
 Use the `DSP` package to add logging to your code. __DO NOT USE__ use `DBMS_OUTPUT`.
 
