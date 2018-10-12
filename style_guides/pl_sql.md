@@ -42,6 +42,10 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
 
   __BAD__:
   `SELECT ksr.backings AS b`
+  
+### Naming Conventions
+
+See [Oracle-Base: Naming Conventions](https://oracle-base.com/articles/misc/naming-conventions) for a full reference.
 
 * Variable naming:
   ```
