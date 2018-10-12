@@ -43,6 +43,8 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
   __BAD__:
   `SELECT ksr.backings AS b`
   
+---
+  
 ### Naming Conventions
 
 See [Oracle-Base: Naming Conventions](https://oracle-base.com/articles/misc/naming-conventions) for reference.
@@ -63,6 +65,8 @@ See [Oracle-Base: Naming Conventions](https://oracle-base.com/articles/misc/nami
   .pkb – Package body.
   .sql – Everything else.
   ```
+  
+---
 
 ### `SELECT`
 
@@ -139,6 +143,8 @@ SUM(1) OVER (PARTITION BY category_id, year
 
 Order (`ASC`, `DESC`) should always be explicit. All window functions should be aliased.
 
+---
+
 ### `FROM`
 
 Only one table should be in the `FROM`. Never use `FROM`-joins:
@@ -167,6 +173,8 @@ WHERE
     backings.project_id = projects.id
     ...
 ```
+
+---
 
 ### `JOIN`
 
@@ -231,6 +239,8 @@ FROM
     ...
 ```
 
+---
+
 ### `WHERE`
 
 Multiple `WHERE` clauses should go on different lines and begin with the SQL operator:
@@ -247,6 +257,8 @@ WHERE
     ...
 ```
 
+---
+
 ### `CASE`
 
 ```sql
@@ -255,6 +267,8 @@ CASE
     ELSE NULL
 END
 ```
+
+---
 
 ### `COMMIT`, `ROLLBACK`
 
