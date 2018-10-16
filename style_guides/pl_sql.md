@@ -250,10 +250,10 @@ SELECT
     name,
     goal
 FROM 
-	ksr.projects AS projects
+    ksr.projects AS projects
 WHERE
     country = 'US'
-    AND deadline >= '2015-01-01'
+    AND TRUNCT(deadline) >= DATE '2015-01-01'
     ...
 ```
 
