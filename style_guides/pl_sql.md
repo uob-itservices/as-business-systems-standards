@@ -8,6 +8,7 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
 * We regularly check-in code to Bitbucket
 * We believe consistency in style is very important.
 * We demonstrate intent explicitly in code, via clear structure and comments where needed.
+* We are pragmatic and do not change legacy code for change's sake.
 
 ## Rules
 
