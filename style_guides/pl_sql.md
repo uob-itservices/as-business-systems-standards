@@ -47,6 +47,8 @@ This guide was originally stolen from the [Kickstarter SQL Style Guide](https://
   
 ### Naming Conventions
 
+If you are working in an existing package/procedure/function please follow the format that it already uses. For new objects follow these naming conventions.
+
 See [Oracle-Base: Naming Conventions](https://oracle-base.com/articles/misc/naming-conventions) for reference.
 
 * Variable naming:
@@ -56,13 +58,13 @@ See [Oracle-Base: Naming Conventions](https://oracle-base.com/articles/misc/nami
   Types                   : t_type_name
   Cursors                 : c_cursor_name
   Exceptions              : e_exception_name
-  Parameters        	: p_parameter_name
+  Parameters              : p_parameter_name
   ```
 
 * File naming:
   ```
-  .pks – Package specification.
-  .pkb – Package body.
+  create_pkw_<name>_spec.sql – Package specification.
+  create_pkw_<name>_body.sql – Package body.
   .sql – Everything else.
   ```
   
