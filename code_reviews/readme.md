@@ -9,8 +9,8 @@ When writing and reviewing code, consider the following points:
 1. Am I able to understand the code easily?
 2. Is the code written following the coding standards/guidelines?
 3. Is the same code duplicated more than twice?
-4. Can I unit test / debug the code easily to find the root cause?
-5. Is this function or class too big? If yes, does the function or class having too many responsibilities?
+4. Can I unit test / debug the code easily?
+5. Is this function or class too big? If yes, does the function or class have too many responsibilities?
 
 ##  Checklist
 
