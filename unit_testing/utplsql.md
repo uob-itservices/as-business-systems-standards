@@ -2,6 +2,8 @@
 
 * [Unit Testing Approach](#1)
 * [Creating Unit Tests](#2)
+	* [Test Specification & Annotations](#21)
+	* [Test Definition & Logic](#22)
 * [Naming Conventions & Style Guide](#3)
 * [Running Unit Tests](#4)
 
@@ -12,8 +14,8 @@ It has been installed on our development Banner database, **DSTU**
 
 **Comprehensive documentation and tutorials are available at: [http://utplsql.org/utPLSQL/latest/](http://utplsql.org/utPLSQL/latest/)**
 
-## Unit Testing Approach
 <a name="1"></a>
+## Unit Testing Approach
 
 Our approach to unit testing PL/SQL is as follows:
 
@@ -33,14 +35,15 @@ At an individual test level:
 
 ## utPLSQL Overview
 
-### Creating Unit Tests
 <a name="2"></a>
+### Creating Unit Tests
 
 At a high level utplsql requires you to create database packages to contain the tests that need to be run. These packages need to be created in the **BANDEV** schema. 
 
 Unit tests are organised into **suites**, which can contain one or more individual  **tests**. For our purposes, each **suite** should equate to a single package.  
 
-#### Test Annotations
+<a name="21"></a>
+#### Test Specification & Annotations
 
 These are identified in the package body using annotations similar to those used in jUnit. The annotations include a description of the suite/test, which is displayed when the test is run.  For example:
 
@@ -85,6 +88,7 @@ Annotations are also used to indicate when procedures should be run, for example
 
 **All annotations available are documented at [http://utplsql.org/utPLSQL/v3.0.0/userguide/annotations.html](http://utplsql.org/utPLSQL/v3.0.0/userguide/annotations.html)**
 
+<a name="22"></a>
 #### Test Definition & Logic
 
 The package body will contain the unit test logic along with any helper functions required to provide functions, procedures, etc... with appropriate input data. 
@@ -179,9 +183,8 @@ This allows the unit test to **encapsulate all functionality required to run the
         END IF;
     END;
 
-
-### Naming Conventions & Style Guide
 <a name="3"></a>
+### Naming Conventions & Style Guide
 
 PL/SQL code created for unit testing should follow our [PL/SQL style guidance](../style_guides/pl/sql.md).
 
