@@ -1,5 +1,4 @@
-#UTPLSQL Unit Testing Framework
-
+# UTPLSQL Unit Testing Framework
 
 * [Unit Testing Approach](#1)
 * [Creating Unit Tests](#2)
@@ -13,7 +12,7 @@ It has been installed on our development Banner database, **DSTU**
 
 **Comprehensive documentation and tutorials are available at: [http://utplsql.org/utPLSQL/latest/](http://utplsql.org/utPLSQL/latest/)**
 
-##Unit Testing Approach
+## Unit Testing Approach
 <a name="1"></a>
 
 Our approach to unit testing PL/SQL is as follows:
@@ -32,14 +31,16 @@ At an individual test level:
 * Every test needs to be built so that it _can_ fail.
 * Tests should keep the environment unchanged post execution. _utPLSQL creates a save point and rolls back any database changes once tests have completed by default, but care must be taken if code that is being tested contains COMMIT statements._
 
-##utPLSQL Overview
+## utPLSQL Overview
 
-###Creating Unit Tests
+### Creating Unit Tests
 <a name="2"></a>
 
 At a high level utplsql requires you to create database packages to contain the tests that need to be run. These packages need to be created in the **BANDEV** schema. 
 
 Unit tests are organised into **suites**, which can contain one or more individual  **tests**. For our purposes, each **suite** should equate to a single package.  
+
+#### Test Annotations
 
 These are identified in the package body using annotations similar to those used in jUnit. The annotations include a description of the suite/test, which is displayed when the test is run.  For example:
 
@@ -83,6 +84,8 @@ Annotations are also used to indicate when procedures should be run, for example
 * ```%disabled``` - Used to disable a suite or a test. Disabled suites/tests do not get executed, they are however marked and reported as disabled in a test run.
 
 **All annotations available are documented at [http://utplsql.org/utPLSQL/v3.0.0/userguide/annotations.html](http://utplsql.org/utPLSQL/v3.0.0/userguide/annotations.html)**
+
+#### Test Definition & Logic
 
 The package body will contain the unit test logic along with any helper functions required to provide functions, procedures, etc... with appropriate input data. 
 
@@ -177,7 +180,7 @@ This allows the unit test to **encapsulate all functionality required to run the
     END;
 
 
-###Naming Conventions & Style Guide
+### Naming Conventions & Style Guide
 <a name="3"></a>
 
 PL/SQL code created for unit testing should follow our [PL/SQL style guidance](../style_guides/pl/sql.md).
@@ -197,7 +200,7 @@ Procedures used to call ```ut.expect()``` should always be prefixed with **PW\_T
     --%test(Test FUNCTION fw_get_div)
     PROCEDURE PW_TEST_DIV_CODE;
 
-###Running Unit Tests
+### Running Unit Tests
 <a name="4"></a>
 
 Developers can run tests by calling the ut.run procedure in a pl/sql block. In the example below, the suite of tests in the package ```PKW_TEST_SWBDIVD``` will be run. 
