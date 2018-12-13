@@ -1,4 +1,4 @@
-#Development Process Overview
+# Development Process Overview
 
 This document contains an overview of the development process within Integration and Systems Development, from work allocation through to deployment of code changes into a production environment.
 
@@ -8,25 +8,25 @@ The overall process is:
 
 When broken down, the following stages are involved:
 
-##Work Allocation and Recording Progress
+## Work Allocation and Recording Progress
 
 * ServiceNow 
 * Enhancements, Incidents and Problem Records
 * Visual Task Boards
 * Recording progress using Work Notes & Kanban States
 	
-##Source Code Management
+## Source Code Management
 
 * Locating source code
 * Branching Strategies
 * GIT Repository Structure
 
-##Changing Code
+## Changing Code
 	
 * Coding Styles
 * Preparing code for promotion
 
-##Code Promotion
+## Code Promotion
 
 * Internal / Unit Testing
 * UAT
