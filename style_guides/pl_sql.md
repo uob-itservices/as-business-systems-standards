@@ -132,18 +132,6 @@ SELECT
 ...
 ```
 
-Long Window functions can be on a single line or split across multiple lines depending on their length:
-
-```sql
-ROW_NUMBER() OVER (PARTITION BY deptno ORDER BY sal DESC) AS row_num
-```
-
-```sql
-SUM(1) OVER (PARTITION BY category_id, year
-             ORDER BY pledged DESC
-             ROWS UNBOUNDED PRECEDING) AS category_year
-```
-
 Order (`ASC`, `DESC`) should always be explicit. All window functions should be aliased.
 
 ---
