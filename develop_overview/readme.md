@@ -6,6 +6,12 @@ The overall process is:
 
 ![Development Overview](dev-overview.jpg)
 
+During this process developers will need to complete the following documents.
+
+* <a href="Development_Team_Test_Script.dotx">A Test Script for Internal/Unit Testing</a>
+
+* <a href="Development_Team_TCD.dotx">A TCD document detailing changes for deployment and Bitbucket Repository</a>
+
 When broken down, the following stages are involved:
 
 ## Work Allocation and Recording Progress
