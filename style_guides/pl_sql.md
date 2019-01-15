@@ -392,6 +392,47 @@ END pkw_cust_sal;
 /
 ```
 
+### Package header and history
+
+Both the body and spec should have a header comment and history.
+
+The header should contain the following information:
+
+* Description - a summary of the package and an enhancement number
+* List of authors
+* Link to source code repository
+
+As changes are made to the package a history should be added to. Each history line should contain:
+
+* Date (YYYY-MM-DD)
+* Enhancement or incident number
+* Author name
+* Summary comment
+
+```sql
+CREATE OR REPLACE PACKAGE pkw_cust_sal 
+AS
+   /**
+     * Provides data for some module
+     * Created as part of ENH0012345
+     *
+     * @author Joe Bloggs <email1@gmail.com>
+     * @author Fred Perry <email2@gmail.com>
+     *
+     * @see https://bitbucket.org/great_repo
+     */ 
+     
+   /**
+     * History
+     * 
+     * 2019-01-15     ENH0012345    Joe Bloggs      Package created
+     */
+    
+    ...
+    
+END pkw_cust_sal;
+```
+
 ## Logging
 
 See [Oracel-Base: Instrumenting Your PL/SQL Code](https://oracle-base.com/articles/misc/instrumenting-your-plsql-code) For reference.
