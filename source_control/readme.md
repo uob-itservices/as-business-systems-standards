@@ -84,3 +84,5 @@ Rather than using the command line there are a number of GUI tools you can use t
 
 * [Git Extensions](https://gitextensions.github.io/)
 * [GitKraken](https://www.gitkraken.com/)
+* [Tower](https://www.git-tower.com/windows)
+* [Sourcetree](https://www.sourcetreeapp.com/)
