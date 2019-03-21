@@ -11,7 +11,7 @@ A full description of Git flow can be found here: [https://nvie.com/posts/a-succ
 A project should consist of the following branches:
 
 * **master** - this is what is currently in production
-* **uat** - this is where code is prepared for release to test/UAT
+* **uat** - this is what is currently in test/UAT
 * **develop** - this is the state of the source code up to the latest developments
 
 ### Feature branches
