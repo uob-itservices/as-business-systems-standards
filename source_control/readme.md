@@ -56,7 +56,7 @@ $ git pull # get any updates to the develop branch
 $ get checkout -b release-1.2 develop # create the new branch
 ```
 
-Once the release is reach we merge it into the master branch and create a tag for the release:
+Once the release is ready we merge it into the master branch and create a tag for the release:
 
 ```shell
 $ git checkout master # switch to the master branch
