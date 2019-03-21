@@ -78,6 +78,10 @@ we can now clean up by deleting the release branch:
 $ git branch -d release-1.2 # delete the release branch
 ```
 
+## Git install
+
+Download git from here: [Git - Downloads](https://git-scm.com/downloads)
+
 ## Tools
 
 Rather than using the command line there are a number of GUI tools you can use to work with Git, here are some examples:
@@ -86,3 +90,4 @@ Rather than using the command line there are a number of GUI tools you can use t
 * [GitKraken](https://www.gitkraken.com/)
 * [Tower](https://www.git-tower.com/windows)
 * [Sourcetree](https://www.sourcetreeapp.com/)
+* And loads [more](https://git-scm.com/downloads/guis)
