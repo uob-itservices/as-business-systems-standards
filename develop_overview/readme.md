@@ -24,7 +24,7 @@ When broken down, the following stages are involved:
 	
 ## Making Code Changes
 
-Source code for developments has been uploaded to GIT repositories hosted on [Bitbucket](https://www.bitbucket.org "Bitbucket Homepage") and team members can contribute to repositories owned by the *UoB Student Systems* user. 
+Source code for developments has been uploaded to GIT repositories hosted on [Bitbucket](https://www.bitbucket.org "Bitbucket Homepage"). Team members can contribute to repositories owned by the *UoB Student Systems* user. 
 
 Changes to source code begin with the creation of a short-lived 'feature' branch off one of the long-lived branches that exist in the repository.
 
@@ -47,7 +47,9 @@ Feature branches are short-lived and are deleted once code changes have been com
 Once created, a new feature branch can be checked out on your local machine and code changes made/committed. 
 
 * [Source Control - creating Feature Branches & GIT Flow](../source_control)
+* [Setting up Shared Key Authentication for GIT](https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html)
 * [Code Style Guides](../style_guides)
+
 
 ## Code Review
 	
