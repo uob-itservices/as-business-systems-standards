@@ -38,7 +38,7 @@ For example:
 
 ![Bitbucket Branches](repo-branches.png)
 
-###Creating a Feature Branch
+### Creating a Feature Branch
 
 Feature branches would normally be created off **master** as we would want to take the current state of the development in production and make our changes on top of that. 
 
@@ -57,15 +57,15 @@ Once created, a new feature branch can be checked out on your local machine and 
 
 ## Code Promotion
 
-###Deployment to Development
+### Deployment to Development
 
 Code changes would normally be made and tested locally, then deployed to the development environment following a code review.  In some circumstances changes may be made in the development environment before code review, for example when making database schema changes. 
 
-###Deployment to UAT
+### Deployment to UAT
 
 Once your changes have passed internal review, they will be merged into the **uat** branch and deployed to the user acceptance testing environment. Your changes will then be available to the business for testing. 
 
-###Deployment to Production
+### Deployment to Production
 
 Once your changes have passed UAT and have been deployed to the production environment, your changes will be merged into the master branch. Your code changes will be prepared for release in one of two ways:
 
