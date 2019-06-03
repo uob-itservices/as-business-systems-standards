@@ -52,7 +52,7 @@ Once created, a new feature branch can be checked out on your local machine and 
 ## Code Review
 	
 * [Creating a Bitbucket Pull request for code review](pull-request.md)
-* [Code Review Checklist](../code_review)
+* [Code Review Checklist](../code_reviews)
 * [Unit Testing](../unit_testing)
 
 ## Code Promotion
