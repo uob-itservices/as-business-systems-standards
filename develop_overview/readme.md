@@ -48,9 +48,9 @@ Feature branches are short-lived and are deleted once code changes have been com
 
 Feature branch names should also be prefixed according to their purpose. 
 
-* Enhancement: **enhancement/** ( e.g. feature/ENH0013191 )
-* Incident: **incident/** ( e.g. hotfix/INC897900 )
-* Problem **problem/** ( e.g. bugfix/PRB40805 )
+* Enhancement: **enhancement/** ( e.g. enhancement/ENH0013191 )
+* Incident: **incident/** ( e.g. incident/INC897900 )
+* Problem **problem/** ( e.g. problem/PRB40805 )
 
 Once created, a new feature branch can be checked out on your local machine and code changes made/committed. 
 
