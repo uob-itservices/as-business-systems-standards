@@ -44,6 +44,12 @@ Feature branches would normally be created off **master** as we would want to ta
 
 Feature branches are short-lived and are deleted once code changes have been completed, deployed to production and merged into master. They should be named after the Service Now incident, problem or enhancement record that has been created to track progress towards completion of the work. Where this isn't possible, feature branches should be given a meaningful name. 
 
+Feature branch names should also be prefixed according to their purpose. 
+
+* Enhancement: **feature/** ( e.g. feature/ENH0013191 )
+* Incident: **hotfix/** ( e.g. hotfix/INC897900 )
+* Problem **bugfix/** ( e.g. bugfix/PRB40805 )
+
 Once created, a new feature branch can be checked out on your local machine and code changes made/committed. 
 
 * [Source Control - creating Feature Branches & GIT Flow](../source_control)
