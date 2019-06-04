@@ -18,7 +18,9 @@ When broken down, the following stages are involved:
 ## Work Allocation and Recording Progress
 
 * [Service Now](http://www.itservicedesk.bham.ac.uk/)
-* Enhancements, Incidents and Problem Records
+* [Incidents](https://kb.bham.ac.uk/KB13916)
+* [Problem Records](https://kb.bham.ac.uk/KB13155)
+* Enhancements
 * Visual Task Boards
 * Recording progress using Work Notes & Kanban States
 	
@@ -46,9 +48,9 @@ Feature branches are short-lived and are deleted once code changes have been com
 
 Feature branch names should also be prefixed according to their purpose. 
 
-* Enhancement: **feature/** ( e.g. feature/ENH0013191 )
-* Incident: **hotfix/** ( e.g. hotfix/INC897900 )
-* Problem **bugfix/** ( e.g. bugfix/PRB40805 )
+* Enhancement: **enhancement/** ( e.g. feature/ENH0013191 )
+* Incident: **incident/** ( e.g. hotfix/INC897900 )
+* Problem **problem/** ( e.g. bugfix/PRB40805 )
 
 Once created, a new feature branch can be checked out on your local machine and code changes made/committed. 
 
