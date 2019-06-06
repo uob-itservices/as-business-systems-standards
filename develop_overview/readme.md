@@ -54,6 +54,8 @@ Feature branch names should also be prefixed according to their purpose.
 
 Once created, a new feature branch can be checked out on your local machine and code changes made/committed. 
 
+**When comitting changes your commit message should be prefixed with the branch name**, e.g. incident/INC897900: Altered function pkw_package.fw_do_something() to deal with scenario X.
+
 * [Source Control - creating Feature Branches & GIT Flow](../source_control)
 * [Setting up Shared Key Authentication for GIT](https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html)
 * [Code Style Guides](../style_guides)
