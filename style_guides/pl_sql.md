@@ -183,9 +183,9 @@ FROM
     ksr.projects AS projects
     INNER JOIN ksr.backings AS backings
     ON ...
-    LEFT JOIN ksr.backer_rewards AS backer_rewards 
+    LEFT OUTER JOIN ksr.backer_rewards AS backer_rewards 
     ON ...
-    LEFT JOIN ...
+    LEFT OUTER JOIN ...
 ```
 
 __BAD__:
@@ -198,9 +198,9 @@ FROM
     ksr.projects AS projects
     JOIN ksr.backings AS backings 
     ON ...
-    LEFT JOIN ksr.backer_rewards AS backer_rewards
+    LEFT OUTER JOIN ksr.backer_rewards AS backer_rewards
     ON ...
-    LEFT JOIN ...
+    LEFT OUTER JOIN ...
 ```
 
 Additional filters in the `INNER JOIN` go on new indented lines:
@@ -376,14 +376,14 @@ AS
 
     ----------------------------------------------------------------------------
     FUNCTION get_student (
-    	p_id  IN student.id%TYPE,
+      p_id  IN student.id%TYPE,
         p_dep IN student.department%TYPE)
     ----------------------------------------------------------------------------
         RETURN t_student
     AS
         l_stu t_student;
     BEGIN
-    	...
+      ...
     END get_student;
 
     ...
