@@ -1,7 +1,7 @@
 # API Standards
 ## 1. Introduction
 
-These standards shamelessly borrows from the following sources with some content from both being repeated here:
+These standards shamelessly borrow from the following sources with content from both being repeated here:
 
 * [Microsoft REST API Guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md)
 * [Google API Design Guide](https://cloud.google.com/apis/design/)
@@ -25,17 +25,15 @@ The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SH
 
 ### 1.3 Updates
 
-This document does not pretend to cover every possible eventuality. If use cases are found which are missing from this standard, the approach must be decided and added. The same is true for any practices detailed here that prove not fit for purpose. They should be updated to a more appropriate approach.
+This document does not pretend to cover every possible eventuality. If use cases are found which are missing from this standard, the approach must be agreed and added. The same is true for any practices detailed here that prove not fit for purpose. They should be updated to a more appropriate approach.
 
 ## Conventions
 
-All services return [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON) by default. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML) is available if specifically requested via an accepts header.
+All services return [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON) by default. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML) is available if specifically requested via an Accept header.
 
 ## Versioning 
 
-All APIs MUST be versioned.
-
-Services are versioned using a Major.Minor versioning scheme. The version of the API is embedded in the path of the request URL, at the end of the service root, e.g.:
+All APIs MUST be versioned. Services are versioned using a Major.Minor versioning scheme. The version of the API is embedded in the path of the request URL, at the end of the service root, e.g.:
 
 * `https://api.contoso.com/v1.0/products/users`
 
@@ -43,9 +41,9 @@ Services are versioned using a Major.Minor versioning scheme. The version of the
 
 TODO
 
-## Supported methods
+## Supported methods / verbs
 
-Operations MUST use the proper HTTP methods whenever possible, and operation idempotency MUST be respected. HTTP methods are frequently referred to as the HTTP verbs. The terms are synonymous in this context, however the HTTP specification uses the term method.
+Operations MUST use the proper HTTP methods whenever possible, and operation idempotency MUST be respected.
 
 Below is a list of methods that REST services SHOULD support. Not all resources will support all methods, but all resources using the methods below MUST conform to their usage.
 
@@ -69,7 +67,6 @@ Below is a list of methods that REST services SHOULD support. Not all resources 
 
 | Response Header | Required      | Description                              |
 |-----------------|---------------|------------------------------------------|
-| Date            | All responses | Timestamp the response was processed, based on the server's clock, in<span> </span><a href="https://tools.ietf.org/html/rfc5322#section-3.3" rel="nofollow" style="box-sizing: border-box; background-color: initial; color: rgb(3, 102, 214); text-decoration: none;">RFC 5322</a><span> </span>date and time format. This header MUST be included in the response. Greenwich Mean Time (GMT) MUST be used as the time zone reference for this header. For example:<span> </span><code style="box-sizing: border-box; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 13.6px; padding: 0.2em 0.4em; margin: 0px; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px;">Wed, 24 Aug 2016 18:41:30 GMT</code>. Note that GMT is exactly equal to UTC (Coordinated Universal Time) for this purpose. |
 | Content-Type    | All responses | The content type                         |
 
 ## Response format
@@ -174,7 +171,7 @@ Details: Object
 |----------|--------|----------|----------------------------------|
 | code     | String | ✔        | System error code                |
 | message  | String | ✔        | System error message             |
-| link     | Url    |          | ink to further error information |
+| link     | Url    |          | Link to further error information |
 
 
 ```json
