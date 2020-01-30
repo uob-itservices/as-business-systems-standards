@@ -148,7 +148,7 @@ Details: Object
 {
     "status": "error",
     "details": {
-        "code": "IvalidPageNumber",
+        "code": "InvalidPageNumber",
         "message": "Page number supplied is not a number",
         "link": "https://api.contoso.com/v1.0/errors/203"
     }
