@@ -42,13 +42,38 @@ Services are versioned using a Major.Minor versioning scheme. The version of the
 
 ## Supported methods
 
+Operations MUST use the proper HTTP methods whenever possible, and operation idempotency MUST be respected. HTTP methods are frequently referred to as the HTTP verbs. The terms are synonymous in this context, however the HTTP specification uses the term method.
+
+Below is a list of methods that REST services SHOULD support. Not all resources will support all methods, but all resources using the methods below MUST conform to their usage.
+
+| Method  | Description                              | Is Idempotent |
+|---------|------------------------------------------|---------------|
+| GET     | Return the current value of an object    | True          |
+| PUT     | Replace an object, or create a named object, when applicable | True          |
+| DELETE  | Delete an object                         | True          |
+| POST    | Create a new object based on the data provided, or submit a command | False         |
+| HEAD    | Return metadata of an object for a GET response. Resources that support the GET method MAY support the HEAD method as well | True          |
+| PATCH   | Apply a partial update to an object      | False         |
+| OPTIONS | Get information about a request; see below for details. | True          |
+
 ## Standard request headers
+
+| Header | Type         | Description                              |
+|--------|--------------|------------------------------------------|
+| Accept | Content type | The requested content type for the response such as:<ul style="box-sizing: border-box; padding-left: 2em; margin-top: 0px; margin-bottom: 16px;"><li style="box-sizing: border-box;">application/xml</li><li style="box-sizing: border-box; margin-top: 0.25em;">application/json</li></ul>Per the HTTP guidelines, this is just a hint and responses MAY have a different content type, such as a blob fetch where a successful response will just be the blob stream as the payload. For services following OData, the preference order specified in OData SHOULD be followed. |
 
 ## Standard response headers
 
-## Standard fields
+| Response Header | Required      | Description                              |
+|-----------------|---------------|------------------------------------------|
+| Date            | All responses | Timestamp the response was processed, based on the server's clock, in<span> </span><a href="https://tools.ietf.org/html/rfc5322#section-3.3" rel="nofollow" style="box-sizing: border-box; background-color: initial; color: rgb(3, 102, 214); text-decoration: none;">RFC 5322</a><span> </span>date and time format. This header MUST be included in the response. Greenwich Mean Time (GMT) MUST be used as the time zone reference for this header. For example:<span> </span><code style="box-sizing: border-box; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 13.6px; padding: 0.2em 0.4em; margin: 0px; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px;">Wed, 24 Aug 2016 18:41:30 GMT</code>. Note that GMT is exactly equal to UTC (Coordinated Universal Time) for this purpose. |
+| Content-Type    | All responses | The content type                         |
 
 ## Response format
+
+In HTTP, response format SHOULD be requested by the client using the Accept header. This is a hint, and the server MAY ignore it if it chooses to. Clients MAY send multiple Accept headers and the service MAY choose one of them.
+
+The default response format (no Accept header provided) SHOULD be application/json, and all services MUST support application/json.
 
 Response: Object
 
@@ -128,6 +153,8 @@ XML example:
 
 ## Errors
 
+The error response MUST be a single JSON object. This object MUST have a property status with the value "error." The value MUST be a JSON object.
+
 ErrorResponse: Object
 
 | Property | Type    | Required | Value   | Description                              |
@@ -155,6 +182,6 @@ Details: Object
 }
 ```
 
-## Return Codes
+## Status Codes
 
-## Security
+Standard HTTP Status Codes SHOULD be used; see the HTTP Status Code definitions for more information.
