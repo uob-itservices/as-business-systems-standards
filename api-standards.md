@@ -32,6 +32,7 @@ This document does not pretend to cover every possible eventuality. If use cases
 All services return [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON) by default. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML) is available if specifically requested via an accepts header.
 
 ## Versioning 
+
 All APIs MUST be versioned.
 
 Services are versioned using a Major.Minor versioning scheme. The version of the API is embedded in the path of the request URL, at the end of the service root, e.g.:
@@ -39,6 +40,8 @@ Services are versioned using a Major.Minor versioning scheme. The version of the
 * `https://api.contoso.com/v1.0/products/users`
 
 ## URL Structure
+
+TODO
 
 ## Supported methods
 
@@ -146,10 +149,13 @@ XML example:
 ## Collections
 
 ### Pagination
+TODO
 
 ### Sorting
+TODO
 
 ### Filtering
+TODO  
 
 ## Errors
 
