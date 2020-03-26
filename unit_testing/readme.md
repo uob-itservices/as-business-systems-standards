@@ -2,7 +2,9 @@
 
 Not all code is suitable for unit testing, but where possible unit tests should be created for all code that we create. 
 
-For PL/SQL we use the [UTPL/SQL unit testing framework](utplsql.md) to create and run unit tests.
+Tools:
+
+* PL/SQL [UTPL/SQL unit testing framework](utplsql.md)
 
 At a high level, a good definition of Unit Testing would be:
 
