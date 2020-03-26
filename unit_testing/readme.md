@@ -5,6 +5,8 @@ Not all code is suitable for unit testing, but where possible unit tests should 
 Tools:
 
 * PL/SQL [UTPL/SQL unit testing framework](utplsql.md)
+* Java [junit](https://junit.org/junit5/)
+* JavaScript [Mocha](https://mochajs.org/)
 
 At a high level, a good definition of Unit Testing would be:
 
