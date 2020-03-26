@@ -1,3 +1,3 @@
 # Source control
 
-1. [Git](source_control/readme.md)
+1. [Git](./git/readme.md)
