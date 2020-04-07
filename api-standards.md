@@ -190,4 +190,5 @@ Details: Object
 Standard HTTP Status Codes SHOULD be used; see the HTTP Status Code definitions for more information.
 
 ## Documentation
-TODO
+
+APIs should be documented in line with the [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3).
