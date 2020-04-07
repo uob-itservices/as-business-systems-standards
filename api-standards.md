@@ -29,7 +29,7 @@ This document does not pretend to cover every possible eventuality. If use cases
 
 ## Conventions
 
-All services return [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON) by default. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML) is available if specifically requested via an Accept header.
+All services MUST return [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON) by default. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML) MAY be available if specifically requested via an Accept header.
 
 ## Versioning 
 
