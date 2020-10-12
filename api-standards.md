@@ -155,8 +155,9 @@ TODO
 TODO  
 
 ## Errors
+The error response MUST be a single object and the format returned SHOULD match what the client requested in the accepts header. This object MUST have a property status with the value "error.". Clients MAY send multiple Accept headers and the service MAY choose one of them.
 
-The error response MUST be a single JSON object. This object MUST have a property status with the value "error." The value MUST be a JSON object.
+The default response format (no Accept header provided) SHOULD be application/json, and all services MUST support application/json.
 
 ErrorResponse: Object
 
