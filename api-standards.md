@@ -1,4 +1,4 @@
-# API Standards
+**# API Standards
 ## 1. Introduction
 
 These standards shamelessly borrow from the following sources with content from both being repeated here:
@@ -31,15 +31,18 @@ This document does not pretend to cover every possible eventuality. If use cases
 
 All services MUST return [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON) by default. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML) MAY be available if specifically requested via an Accept header.
 
-## Versioning 
+## Versioning (Draft)
 
-All APIs MUST be versioned. Services are versioned using a Major.Minor versioning scheme. The version of the API is embedded in the path of the request URL, at the end of the service root, e.g.:
-
-* `https://api.contoso.com/v1.0/products/users`
+Versioning approach currently in review.
 
 ## URL Structure
 
-TODO
+URLs should follow a common structure. The University Capability Model provides a structure that allows for APIs to be grouped into a logical structure, e.g:
+
+* https://api.bham.ac.uk/academic/administration/curriculum/programmes-light
+* https://api.bham.ac.uk/academic/student/assessment/feedback
+
+For more details on this structure speak to data architecture.
 
 ## Supported methods / verbs
 
@@ -47,27 +50,27 @@ Operations MUST use the proper HTTP methods whenever possible, and operation ide
 
 Below is a list of methods that REST services SHOULD support. Not all resources will support all methods, but all resources using the methods below MUST conform to their usage.
 
-| Method  | Description                              | Is Idempotent |
-|---------|------------------------------------------|---------------|
-| GET     | Return the current value of an object    | True          |
+| Method  | Description                                                  | Is Idempotent |
+| ------- | ------------------------------------------------------------ | ------------- |
+| GET     | Return the current value of an object                        | True          |
 | PUT     | Replace an object, or create a named object, when applicable | True          |
-| DELETE  | Delete an object                         | True          |
+| DELETE  | Delete an object                                             | True          |
 | POST    | Create a new object based on the data provided, or submit a command | False         |
 | HEAD    | Return metadata of an object for a GET response. Resources that support the GET method MAY support the HEAD method as well | True          |
-| PATCH   | Apply a partial update to an object      | False         |
-| OPTIONS | Get information about a request; see below for details. | True          |
+| PATCH   | Apply a partial update to an object                          | False         |
+| OPTIONS | Get information about a request; see below for details.      | True          |
 
 ## Standard request headers
 
-| Header | Type         | Description                              |
-|--------|--------------|------------------------------------------|
+| Header | Type         | Description                                                  |
+| ------ | ------------ | ------------------------------------------------------------ |
 | Accept | Content type | The requested content type for the response such as:<ul style="box-sizing: border-box; padding-left: 2em; margin-top: 0px; margin-bottom: 16px;"><li style="box-sizing: border-box;">application/xml</li><li style="box-sizing: border-box; margin-top: 0.25em;">application/json</li></ul>Per the HTTP guidelines, this is just a hint and responses MAY have a different content type, such as a blob fetch where a successful response will just be the blob stream as the payload. For services following OData, the preference order specified in OData SHOULD be followed. |
 
 ## Standard response headers
 
-| Response Header | Required      | Description                              |
-|-----------------|---------------|------------------------------------------|
-| Content-Type    | All responses | The content type                         |
+| Response Header | Required      | Description      |
+| --------------- | ------------- | ---------------- |
+| Content-Type    | All responses | The content type |
 
 ## Response format
 
@@ -78,14 +81,14 @@ The default response format (no Accept header provided) SHOULD be application/js
 Response: Object
 
 | Property | Type    | Required | Value | Description                         |
-|----------|---------|----------|-------|-------------------------------------|
+| -------- | ------- | -------- | ----- | ----------------------------------- |
 | status   | String  | ✔        | "ok"  | message status                      |
 | payload  | Payload | ✔        |       | Object containing all returned data |
 
 Payload: Object
 
 | Property    | Type          | Required | Description                |
-|-------------|---------------|----------|----------------------------|
+| ----------- | ------------- | -------- | -------------------------- |
 | page_number | Number        | ✔        | Number of the current page |
 | page_size   | Number        | ✔        | Length of the current page |
 | items       | Array<Object> | ✔        | data returned              |
@@ -94,7 +97,7 @@ Payload: Object
 Links: Object
 
 | Property | Type | Required | Description                        |
-|----------|------|----------|------------------------------------|
+| -------- | ---- | -------- | ---------------------------------- |
 | prev     | Url  |          | Link to previous page if it exists |
 | self     | Url  | ✔        | Link to current page               |
 | next     | Url  |          | Link to next page if it exists     |
@@ -145,33 +148,33 @@ XML example:
 
 ## Collections
 
-### Pagination
+### Pagination - Draft
 TODO
 
-### Sorting
+### Sorting - Draft
 TODO
 
-### Filtering
+### Filtering - Draft
 TODO  
 
 ## Errors
-The error response MUST be a single object and the format returned SHOULD match what the client requested in the accepts header. This object MUST have a property status with the value "error.". Clients MAY send multiple Accept headers and the service MAY choose one of them.
+The error response MUST be a single object and the format returned MUST match what the client requested in the accepts header. This object MUST have a property status with the value "error.". Clients MAY send multiple Accept headers and the service MUST choose one of them.
 
 The default response format (no Accept header provided) SHOULD be application/json, and all services MUST support application/json.
 
 ErrorResponse: Object
 
-| Property | Type    | Required | Value   | Description                              |
-|----------|---------|----------|---------|------------------------------------------|
-| status   | String  | ✔        | "error" | message status                           |
+| Property | Type    | Required | Value   | Description                                 |
+| -------- | ------- | -------- | ------- | ------------------------------------------- |
+| status   | String  | ✔        | "error" | message status                              |
 | details  | Details | ✔        |         | Object containing more details of the error |
 
 Details: Object
 
-| Property | Type   | Required | Description                      |
-|----------|--------|----------|----------------------------------|
-| code     | String | ✔        | System error code                |
-| message  | String | ✔        | System error message             |
+| Property | Type   | Required | Description                       |
+| -------- | ------ | -------- | --------------------------------- |
+| code     | String | ✔        | System error code                 |
+| message  | String | ✔        | System error message              |
 | link     | Url    |          | Link to further error information |
 
 
@@ -181,14 +184,14 @@ Details: Object
     "details": {
         "code": "InvalidPageNumber",
         "message": "Page number supplied is not a number",
-        "link": "https://api.contoso.com/v1.0/errors/203"
+        "link": "https://api.contoso.com/errors/203"
     }
 }
 ```
 
 ## Status Codes
 
-Standard HTTP Status Codes SHOULD be used; see the HTTP Status Code definitions for more information.
+Standard HTTP Status Codes MUST be used; see the HTTP Status Code definitions for more information.
 
 ## Documentation
 
