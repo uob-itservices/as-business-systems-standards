@@ -1,4 +1,5 @@
 # API Standards
+
 ## 1. Introduction
 
 These standards shamelessly borrow from the following sources with content from both being repeated here:
@@ -37,7 +38,7 @@ Versioning approach currently in review.
 
 ## URL Structure
 
-URLs should follow a common structure. The University Capability Model provides a structure that allows for APIs to be grouped into a logical structure, e.g:
+URLs should follow a common structure. The University Capability Model provides a structure that allows for APIs to be grouped logically, e.g:
 
 * https://api.bham.ac.uk/academic/administration/curriculum/programmes-light
 * https://api.bham.ac.uk/academic/student/assessment/feedback
