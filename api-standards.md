@@ -1,4 +1,4 @@
-**# API Standards
+# API Standards
 ## 1. Introduction
 
 These standards shamelessly borrow from the following sources with content from both being repeated here:
