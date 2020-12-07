@@ -210,3 +210,6 @@ Standard HTTP Status Codes MUST be used; see the HTTP Status Code definitions fo
 ## Documentation
 
 APIs should be documented in line with the [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3).
+
+## Security (Draft)
+TODO
