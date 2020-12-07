@@ -92,8 +92,9 @@ Payload: Object
 | ----------- | ------------- | -------- | -------------------------- |
 | page_number | Number        | ✔        | Number of the current page |
 | page_size   | Number        | ✔        | Length of the current page |
+| has_more    | boolean       | ✔        | Indicates if there are more pages |
 | items       | Array<Object> | ✔        | data returned              |
-| links       | Links         | ✔        | Navigation links           |
+| links       | Links         |          | Navigation links           |
 
 Links: Object
 
@@ -111,6 +112,7 @@ JSON example:
     "payload": {
         "page_number": 12,
         "page_size": 10,
+        "has_more": true,
         "items": [
             {...},
             {...},
@@ -133,6 +135,7 @@ XML example:
     <payload>
         <page_number>12</page_number>
         <page_size>10</page_size>
+        <has_more>true</has_more>
         <items>
             <..>...</..>,
             <..>...</..>,
@@ -149,8 +152,18 @@ XML example:
 
 ## Collections
 
-### Pagination - Draft
-TODO
+### Pagination
+
+Pagination is supported in the standard response format and MUST be supported in all APIs. The properties included in the return structure of `page_number`, `page_size` and `has_more` inform clients about where they are in the data set and if more data is available.
+
+Clients can request different pages of data by using query parameters:
+
+| Parameter | Type | Default | Description                        |
+| --------- | ---- | -------- | ---------------------------------- |
+| page     | Query  | 1       | Specify page number to return |
+| pagesize | Query  | 10      | Specify number of items to include in page |
+
+If a page is requested and there is no data for that page to return the return value will have an empty items array.
 
 ### Sorting - Draft
 TODO
