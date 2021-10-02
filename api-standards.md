@@ -172,36 +172,31 @@ TODO
 TODO  
 
 ## Errors
-The error response MUST be a single object and the format returned MUST match what the client requested in the accepts header. This object MUST have a property status with the value "error.". Clients MAY send multiple Accept headers and the service MUST choose one of them.
+Errors follow the approach detailed in [RFC7807 - Problem Details for HTTP APIs](https://datatracker.ietf.org/doc/html/rfc7807). This RFC documents a standard approach to communicating errors via APIs. An example of the JSON document that is returned is:
 
-The default response format (no Accept header provided) SHOULD be application/json, and all services MUST support application/json.
+```
+HTTP/1.1 403 Forbidden
+Content-Type: application/problem+json
+Content-Language: en
 
-ErrorResponse: Object
-
-| Property | Type    | Required | Value   | Description                                 |
-| -------- | ------- | -------- | ------- | ------------------------------------------- |
-| status   | String  | ✔        | "error" | message status                              |
-| details  | Details | ✔        |         | Object containing more details of the error |
-
-Details: Object
-
-| Property | Type   | Required | Description                       |
-| -------- | ------ | -------- | --------------------------------- |
-| code     | String | ✔        | System error code                 |
-| message  | String | ✔        | System error message              |
-| link     | Url    |          | Link to further error information |
-
-
-```json
 {
-    "status": "error",
-    "details": {
-        "code": "InvalidPageNumber",
-        "message": "Page number supplied is not a number",
-        "link": "https://api.contoso.com/errors/203"
-    }
+    "type": "https://example.com/probs/out-of-credit",
+    "title": "You do not have enough credit.",
+    "detail": "Your current balance is 30, but that costs 50.",
+    "instance": "/account/12345/msgs/abc",
+    "balance": 30,
+    "accounts": ["/account/12345","/account/67890"],
+    "status": 403
 }
 ```
+
+* type (string): URI that identifies the problem detail type. In this case “out-of-credit”.
+* title (string): A short human-readable summary about the problem.
+* detail (string): A human-readable explanation about the problem.
+* status (number): HTTP Status Code.
+* instance (string): A URI reference that identifies the specific occurrence of the problem.
+    
+For more details on this approach please refer to the RFC.
 
 ## Status Codes
 
