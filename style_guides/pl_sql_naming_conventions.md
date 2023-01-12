@@ -56,10 +56,8 @@ Don't use single letter variable names and try to be as descriptive as possible 
 The following naming conventions should be used for database packages:
 
 ```
-pkw_<name>_spec        -- Package specification
-pkw_<name>_body        -- Package body
-pkw_test_<name>_spec   -- UT/PLSQL Test package specification
-pkw_test_<name>_body   -- UT/PLSQL Test package body
+pkw_<name>        -- Package
+pkw_test_<name>   -- UT/PLSQL Test package
 ```
 
 ### Package Functions and Procedures
@@ -73,7 +71,7 @@ fw_<name>              -- Function
 
 All procedure and function parameters should be named according to the variable naming prefixes in this document and direction explicitly specified. For example:
 
-```
+```sql
 PROCEDURE pw_timetable_process_apis (
         i_tt_instance      IN  VARCHAR2 DEFAULT NULL,
         o_error_code       OUT VARCHAR2,
