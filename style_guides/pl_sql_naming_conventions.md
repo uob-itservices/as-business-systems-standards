@@ -200,7 +200,9 @@ COMMENT ON COLUMN schema.table.column2 IS 'Column 2 description';
 
 ### Temporary tables
 
-The name for temporary tables should always link back to the Service Now incident or JiRA issue number that they have been created for, for example *srs-001_swradms_table_backup* . 
+The name for temporary tables should always link back to the Service Now incident or JiRA issue number that they have been created for, for example *srs_001_swradms_table_backup* . 
+
+Note that table names cannot contain hyphen ( - ) characters and these should be replaced with an underscore. 
 
 **You should always plan and schedule change requests to remove these tables when no longer unnecessary. Your JiRA issue should not be marked as done until all temporary tables have been removed.**
 
