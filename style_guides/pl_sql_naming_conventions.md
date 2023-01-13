@@ -86,10 +86,10 @@ Packages should have filenames in the following format, for example pkw_package1
 
 
 ```
-pkw_<name>_spec.sql        -- Package specification
-pkw_<name>_body.sql        -- Package body
-pkw_test_<name>_spec.sql   -- UT/PLSQL Test package specification
-pkw_test_<name>_body.sql   -- UT/PLSQL Test package body
+pkw_<name>.pks        -- Package specification
+pkw_<name>.pkb        -- Package body
+pkw_test_<name>.pks   -- UT/PLSQL Test package specification
+pkw_test_<name>.pkb   -- UT/PLSQL Test package body
 ```
 
 ### Variable Scope
