@@ -48,4 +48,6 @@ Inside a database object or script only use the line commenting technique ```--`
 
 ## Commented code
 
-Delete commented code. If you are worried about losing it, it should be stored in version contol. Leaving commented out code in your source leads to code rot.
+Delete commented code. If you are worried about losing it, it should be stored in version contol. Leaving commented out code in your source contributes toward code rot. 
+
+See [What Is Code Rot and How Do You Identify It?](https://linearb.io/blog/what-is-code-rot/) (*external link*) for more information. 

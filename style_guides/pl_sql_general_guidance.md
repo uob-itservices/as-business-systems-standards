@@ -1,6 +1,18 @@
 # General PL/SQL Writing Guidance
 
-** To be Updated **
+This page contains some general guidance on how to approach writing pl/sql, but it is not intended to be an exhaustive list of good practice.
+
+
+* [Column Aliases](#column-aliases)
+* [Table Joins](#table-joins)
+* [Conditional Statements](#conditional-statements)
+* [Transaction Control - COMMIT and ROLLBACK](#transaction-control-commit-and-rollback)
+* [Table Sequences](#table-sequences)
+* [Single Responsibility Principle](single-responsibility-principle)
+* [Conditional Statements](#conditional-statements)
+
+
+## Column Aliases
 
 Always rename aggregates and function-wrapped columns:
 
@@ -46,7 +58,7 @@ Order (`ASC`, `DESC`) should always be explicit. All window functions should be 
 
 ---
 
-## `JOIN`
+## Table Joins
 
 __USE ANSI JOIN SYNTAX!__
 
@@ -111,25 +123,14 @@ FROM
 
 ---
 
-## `WHERE`
+## Conditional Statements
 
-Multiple `WHERE` clauses should go on different lines and begin with the SQL operator:
+Unless your use case absolutely requires a `DECODE`, always use a `CASE` statement for conditional processing. 
 
-```sql
-SELECT
-    name,
-    goal
-FROM 
-    ksr.projects AS projects
-WHERE
-    country = 'US'
-    AND TRUNCT(deadline) >= DATE '2015-01-01'
-    ...
-```
+In all but the simplest scenarios a `CASE` satatement is more readable ( and therefore maintainable ) and handles a larger variety of conditions.
 
----
+For more information on using `CASE` statements, please see [The Difference Between DECODE and CASE](https://www.oratable.com/decode-case-differences/) (*external_link*).
 
-## `CASE`
 
 ```sql
 CASE 
@@ -140,7 +141,7 @@ END
 
 ---
 
-## `COMMIT`, `ROLLBACK`
+## Transaction Control COMMIT and ROLLBACK 
 
 A function or procedure should take a parameter to specify this behavior. This means it can be controlled by the calling code and makes it more flexible.
 
@@ -169,11 +170,7 @@ ELSIF p_commit = g_ROLLBACK THEN
 END IF;
 ```
 
-## Triggers
-
-__DO NOT USE TRIGGERS__
-
-## Primary Key Sequences
+## Table Sequences
 
 From Oracle Database 12c use database identity columns to define table sequence columns:
 
@@ -184,17 +181,15 @@ From Oracle Database 12c use database identity columns to define table sequence 
 );
 ```
 
-The value in column primary_key_id will be autmoatically generated as an incrementing value. For more information on this visit: [docs.oracle.com](https://docs.oracle.com/en/database/other-databases/nosql-database/22.1/sqlreferencefornosql/identity-column.html)
+The value in column primary_key_id will be autmoatically generated as an incrementing value. For more information on this visit: [docs.oracle.com](https://docs.oracle.com/en/database/other-databases/nosql-database/22.1/sqlreferencefornosql/identity-column.html) (*external_link*).
 
-## Functions and procedures
 
-Speficy functions and procedures appropriately. Do not just make everything a procedure.
+## Single Responsibility Principle
 
-## Single responsibility principal
+When writing code always consider the [Single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) (*external_link*) Each block of code should do one thing, and one thing well.
 
-The [Single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) - each block of code should do one thing, and one thing well.
 
-## `CASE` expressions
+## Conditional Statements
 
 This makes assigning a varable based of a number of options cleaner. Use this method over if-else statements and decode
 
@@ -220,61 +215,3 @@ ELSE
 END IF;
 ```
 
-## Packages
-
-* Package names should start with `pkw_`
-* Single parameter functions and procedures definitions are written on a single line
-* Multiple parameters functions and procedure definitions have parameters separate lines
-* All parameters must have a declaration specified: `in`, `out`, `nocopy` and these should align vertically 
-
-```sql
-CREATE OR REPLACE PACKAGE pkw_cust_sal 
-AS 
-    PROCEDURE find_sal(c_id IN student.id%type);
-    
-    PROCEDURE find_student(
-        p_id  IN  student.id%TYPE,
-        p_dep OUT student.department%TYPE);
-   
-   FUNCTION get_sal RETURN NUMBER;
-   
-   FUNCTION get_student(
-       p_id  IN student.id%TYPE,
-       p_dep IN student.department%TYPE)
-       RETURN t_student;
-END pkw_cust_sal;
-/
-
-CREATE OR REPLACE PACKAGE BODY pkw_cust_sal
-AS
-    ...
-
-    ----------------------------------------------------------------------------
-    FUNCTION get_student (
-      p_id  IN student.id%TYPE,
-        p_dep IN student.department%TYPE)
-    ----------------------------------------------------------------------------
-        RETURN t_student
-    AS
-        l_stu t_student;
-    BEGIN
-      ...
-    END get_student;
-
-    ...
-
-END pkw_cust_sal;
-/
-```
-
-## Tips
-
-Your text editor can help you. __DO NOT USE__ Notepad, WordPad or Word. Do use:
-
-* Toad
-* SqlDeveloper
-* Notepad ++
-* Sublime Text
-* Ultra Edit
-* VS Code
-* this list is endless
