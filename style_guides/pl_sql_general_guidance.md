@@ -5,7 +5,6 @@ This page contains some general guidance on how to approach writing pl/sql, but 
 
 * [Column Aliases](#column-aliases)
 * [Table Joins](#table-joins)
-* [Conditional Statements](#conditional-statements)
 * [Transaction Control - COMMIT and ROLLBACK](#transaction-control-commit-and-rollback)
 * [Table Sequences](#table-sequences)
 * [Single Responsibility Principle](single-responsibility-principle)
