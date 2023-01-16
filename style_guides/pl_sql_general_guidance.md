@@ -123,24 +123,6 @@ FROM
 
 ---
 
-## Conditional Statements
-
-Unless your use case absolutely requires a `DECODE`, always use a `CASE` statement for conditional processing. 
-
-In all but the simplest scenarios a `CASE` satatement is more readable ( and therefore maintainable ) and handles a larger variety of conditions.
-
-For more information on using `CASE` statements, please see [The Difference Between DECODE and CASE](https://www.oratable.com/decode-case-differences/) (*external_link*).
-
-
-```sql
-CASE 
-    WHEN category = 'Art' THEN backer_id
-    ELSE NULL
-END
-```
-
----
-
 ## Transaction Control COMMIT and ROLLBACK 
 
 A function or procedure should take a parameter to specify this behavior. This means it can be controlled by the calling code and makes it more flexible.
@@ -181,17 +163,21 @@ From Oracle Database 12c use database identity columns to define table sequence 
 );
 ```
 
-The value in column primary_key_id will be autmoatically generated as an incrementing value. For more information on this visit: [docs.oracle.com](https://docs.oracle.com/en/database/other-databases/nosql-database/22.1/sqlreferencefornosql/identity-column.html) (*external_link*).
+The value in column primary_key_id will be autmoatically generated as an incrementing value. For more information on this visit: [docs.oracle.com](https://docs.oracle.com/en/database/other-databases/nosql-database/22.1/sqlreferencefornosql/identity-column.html)
 
 
 ## Single Responsibility Principle
 
-When writing code always consider the [Single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) (*external_link*) Each block of code should do one thing, and one thing well.
+When writing code always consider the [Single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle). Each block of code should do one thing, and one thing well.
 
 
 ## Conditional Statements
 
-This makes assigning a varable based of a number of options cleaner. Use this method over if-else statements and decode
+Unless your use case absolutely requires a `DECODE`, always use a `CASE` statement for conditional processing. 
+
+In all but the simplest scenarios a `CASE` satatement is more readable ( and therefore maintainable ) and handles a larger variety of conditions.
+
+For more information on using `CASE` statements, please see [The Difference Between DECODE and CASE](https://www.oratable.com/decode-case-differences/)
 
 __GOOD__:
 
