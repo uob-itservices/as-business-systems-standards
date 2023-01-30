@@ -93,33 +93,6 @@ FROM
     LEFT OUTER JOIN ...
 ```
 
-Additional filters in the `INNER JOIN` go on new indented lines:
-
-```sql
-SELECT
-    projects.name      AS project_name,
-    COUNT(backings.id) AS backings_count
-FROM 
-    ksr.projects AS projects
-    INNER JOIN ksr.backings AS backings
-    ON projects.id = backings.project_id
-    AND backings.project_country != 'US'
-    ...
-```
-
-The `ON` keyword and condition goes on a  new line:
-
-```sql
-SELECT
-    projects.name      AS project_name,
-    COUNT(backings.id) AS backings_count
-FROM 
-    ksr.projects AS projects
-    INNER JOIN ksr.backings AS backings 
-    ON projects.id = backings.project_id
-    ...
-```
-
 ---
 
 ## Transaction Control COMMIT and ROLLBACK 

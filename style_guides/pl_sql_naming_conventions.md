@@ -1,4 +1,4 @@
-# Variables Naming Conventions
+# Variable Naming Conventions
 
 ## Variable Names
 

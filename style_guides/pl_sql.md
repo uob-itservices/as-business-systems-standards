@@ -12,18 +12,17 @@ This guide uses parts of and expands upon  the [Kickstarter SQL Style Guide](htt
 
 It is split into the following sections:
 
-1. [Files, Variables and Naming Conventions](pl_sql_naming_conventions.md)
-2. [Comments and Change History](pl_sql_comments_history.md)
-3. [Variables Naming Conventions](pl_sql_naming_conventions.md)
-4. [Tables](pl_sql_tables.md)
-5. [Packages](pl_sql_packages.md)
-6. [Triggers](pl_sql_triggers.md)
-7. [Other Objects](pl_sql_other_objects.md)
-8. [Scripts](pl_sql_scripts.md)
-9. [Repository Directory Structure](pl_sql_repo_structure.md) 
-11. [Formatting PL/SQL and SQL Code](pl_sql_fomatting_code.md)
-12. [General PL/SQL Writing Guidance](pl_sql_general_guidance.md)
-13. [Logging](pl_sql_logging.md)
+1. [Variables Naming Conventions](pl_sql_naming_conventions.md)
+2. [Tables](pl_sql_tables.md)
+3. [Packages](pl_sql_packages.md)
+4. [Triggers](pl_sql_triggers.md)
+5. [Other Objects](pl_sql_other_objects.md)
+6. [Scripts](pl_sql_scripts.md)
+7. [Comments and Change History](pl_sql_comments_history.md)
+8. [Repository Directory Structure](pl_sql_repo_structure.md) 
+9. [Formatting PL/SQL and SQL Code](pl_sql_fomatting_code.md)
+10.[General PL/SQL Writing Guidance](pl_sql_general_guidance.md)
+11.[Logging](pl_sql_logging.md)
 
 ## Working with Legacy Code
 

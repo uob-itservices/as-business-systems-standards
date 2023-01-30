@@ -17,6 +17,7 @@ repository_root_folder
     views
     tables
     types
+    apex - APEX application exports
     jobs - database schedules
     scripts - all data update scripts
     tests - all test code, including utplsql packages
@@ -29,13 +30,8 @@ great_stuff_repo
 
   packages
 	
-    bandev -- Optional subfolder to indicate schema
-
       pkw_great_stuff_spec.sql
       pkw_great_stuff_body.sql
-      
-    baninst1 -- Optional subfolder to indicate schema
-    
       pkw_great_stuff_more_functionality_spec.sql
       pkw_great_stuff_more_functionality_body.sql
 

@@ -35,7 +35,7 @@ Cursor names should be named as follows:
 ```
 c_get_level_m_marks
 ```
-Where a cursor parameters these must be defined as parameters and not reference variables available to the cursor.  For example:
+Where a cursor accepts parameters these must be explictly defined and not reference subprogram variables available to the cursor.  For example:
 
 ```sql
 c_get_term(p_date IN DATE)

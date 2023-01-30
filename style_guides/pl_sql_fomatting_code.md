@@ -10,7 +10,7 @@ We apply some general standards to PL/SQL and SQL code:
 
 * Variables should be in lowercase and underscore separated, with global constant variables capitalised ( see section on Variables and Naming Conventions ). 
 
-These can all be applied using the SQL developer code formatting tool. 
+**These can all be applied using the SQL developer code formatting tool.**
 
 Your code must be run through the SQL Developer code formatting tool prior to code review. The simplest way to run this is to open your sql script in SQL Developer and press **CTRL + F7**.
 
