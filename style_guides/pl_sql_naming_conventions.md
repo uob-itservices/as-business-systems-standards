@@ -16,7 +16,7 @@ Variable naming prefixes:
   Types                    : t_type_name
   Cursors                  : c_cursor_name
   Exceptions               : e_exception_name
-  Parameters               : i_parameter_name
+  Parameters               : p_parameter_name
   ```
 
 Constant variables should be named in CAPS, but otherwise use the appropriate prefix. For example:
