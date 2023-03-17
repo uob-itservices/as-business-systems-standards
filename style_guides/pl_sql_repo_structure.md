@@ -2,7 +2,7 @@
 
 All source code repositories should use the following directory structure where files of the relevant types are needed. If you do not have any files of a given type, the directory doesn't need to be created. For example, a repository with no trigger definitions will not need a *triggers* folder. 
 
-Where your development includes updates in a number of schemas outside of BANDEV, this can be indicated using top level schema folders. If all of your code resides in BANDEV, this is not required. 
+Where your development includes updates in a number of schemas outside of a single schema, this can be indicated using top level schema folders. If all of your code resides in a single schema, this is not required. However your deployment scripts and/or TCD must make it clear which schema changes should be applied to. 
 
 ```
 repository_root_folder 
@@ -21,6 +21,7 @@ repository_root_folder
     jobs - database schedules
     scripts - all data update scripts
     tests - all test code, including utplsql packages
+    ords - Anything relating to ords API setup
 ```    
    
 An example directory structure for a repository called **great_stuff_repo** :
@@ -30,10 +31,10 @@ great_stuff_repo
 
   packages
 	
-      pkw_great_stuff_spec.sql
-      pkw_great_stuff_body.sql
-      pkw_great_stuff_more_functionality_spec.sql
-      pkw_great_stuff_more_functionality_body.sql
+      pkw_great_stuff.pks
+      pkw_great_stuff.pkb
+      pkw_great_stuff_more_functionality.pkb
+      pkw_great_stuff_more_functionality.pks
 
   triggers
 

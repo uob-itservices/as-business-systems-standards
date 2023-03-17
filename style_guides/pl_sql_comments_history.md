@@ -13,7 +13,7 @@ We do not create or include version numbers for items in the change history.
 Each time the object is changed a new line should be added to the header. Each history line should contain:
 
 * Date (YYYY-MM-DD)
-* Enhancement or incident number
+* JIra Issue ID ( e.g. SSDT-333 )
 * Author name
 * Summary comment
 
@@ -22,7 +22,7 @@ CREATE OR REPLACE PACKAGE pkw_great_stuff
 AS
    /**
      * Provides data for some module
-     * Created as part of SRS-001
+     * Created as part of SSDT-001
      *
      * @author Joe Bloggs <email1@bham.ac.uk>
      * @author Fred Perry <email2@bham.ac.uk>
@@ -33,7 +33,7 @@ AS
    /**
      * History
      * 
-     * 2019-01-15     SRS-001    Joe Bloggs      Package created
+     * 2019-01-15     SSDT-001    Joe Bloggs      Package created
      */
     
     ...

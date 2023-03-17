@@ -2,11 +2,11 @@
 
 ## Variable Names
 
-**If you are working in an existing procedure or function please follow the format that it already uses.** For new objects follow these naming conventions.
-
 These variable naming prefixes are based on those at [Oracle-Base: Naming Conventions](https://oracle-base.com/articles/misc/naming-conventions).
 
-They apply across all database objects and cursors.
+**If you are working in an existing procedure or function please follow the format that it already uses.** For new objects, follow these naming conventions.
+
+Aside from constant values, variables should be underscore separated and lower case. These conventions apply across variables in all database objects and cursors.
 
 Variable naming prefixes:
 
@@ -25,7 +25,8 @@ Constant variables should be named in CAPS, but otherwise use the appropriate pr
 Global Constant Variable  : g_VARIABLE_NAME
 Local Constant Variable   : l_VARIABLE_NAME
 ```
-Aside from constant values, variables should be underscore separated and lower case. Some examples:
+
+Some examples:
 
 ```
 l_calculated_mean
@@ -43,4 +44,4 @@ p_term_code
 6. Any abbreviations used must be widely known and accepted.
 7. Never use keywords as names. A list of keywords may be found in the dictionary view v$reserved_words.
 8. Avoid adding redundant or meaningless prefixes and suffixes to identifiers. Example: create table emp_table.
-9. Always use the same names for elements with the same meaning.
+9. Always use the same names for elements with the same meaning. For example, if a database function declares three variables that contain module data a good example of variable names would be l_module_code, l_module_crn, l_module_overall_mark. A bad example would be l_module_code, l_crn_mod, l_md_ovrll_mark.

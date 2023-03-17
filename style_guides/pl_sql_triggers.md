@@ -11,30 +11,29 @@ tw_<COMPOUND>_<timing>_<event>_on_<table> -- <COMPOUND> is optional and event ca
 Use the following abbreviations for timing:
 
 ```
-AFT -- After
-BEF -- Before
+AFTER -- After
+BEFORE -- Before
 ```
 
 Use the following abbreviations for triggering events:
 
 ``` 
-UPD -- Update
-INS -- Insert
-DEL -- Delete
+UPDATE -- Update
+INSERT -- Insert
+DELETE -- Delete
 ```
 
 For example:
 
 ```
-TW_AFT_UPD_ON_SWBDEGC
-TW_BEF_DEL_ON_SWRADMS
-TW_AFT_INS_UPD_ON_STVDEPT
-TW_COMPOUND_AFT_INS_ON_SCBCRSE
+TW_AFTER_UPDATE_SWBDEGC
+TW_BEFORE_DELETE_SWRADMS
+TW_AFTER_INSERT_UPDATE_STVDEPT
 ```
 
 ## File Names
 
-Triggers should have filenames in the following format, for example *tw_aft_upd_on_swbdegc.sql*. We do not include a Jira issue number in filenames for triggers because these files may be updated with further changes after the object has been created. 
+Triggers should have filenames in the following format, for example *tw_after_update_on_swbdegc.sql*. We do not include a Jira issue number in filenames for triggers because these files may be updated with further changes after the object has been created. 
 
 ```
 <trigger_name>.sql

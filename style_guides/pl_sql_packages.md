@@ -6,10 +6,10 @@ The following naming conventions should be used for database packages:
 
 ```
 pkw_<name>        -- Package
-pkw_test_<name>   -- UT/PLSQL Test package
+pkw_<name>_test   -- UT/PLSQL Test package
 ```
 
-## Package Functions and Procedures
+## Package Procedures and Functions
 
 Procedures and functions in a package should be named as follows: 
 
@@ -22,10 +22,10 @@ All procedure and function parameters should be named according to the variable 
 
 ```sql
 PROCEDURE pw_timetable_process_apis (
-        i_tt_instance      IN  VARCHAR2 DEFAULT NULL,
-        o_error_code       OUT VARCHAR2,
-        o_error_type       OUT VARCHAR2,
-        i_logging_enabled  IN  BOOLEAN DEFAULT g_DSP_DISABLED);
+        p_tt_instance      IN  VARCHAR2 DEFAULT NULL,
+        p_error_code       OUT VARCHAR2,
+        p_error_type       OUT VARCHAR2,
+        p_logging_enabled  IN  BOOLEAN DEFAULT g_DSP_DISABLED);
 ```
 
 ## Cursors
@@ -49,7 +49,7 @@ SELECT stvterm_code
 
 ## File Names
 
-Packages should have filenames in the following format, for example pkw_package1.sql. We do not include a JiRA issue number in filenames for packages because these files may be updated with further changes after the object has been created. This is in contrast to tables where changes are made using new scripts. 
+Packages should have filenames in the following format, for example pkw_package1.pkb. We do not include a JiRA issue number in filenames for packages because these files may be updated with further changes after the object has been created. This is in contrast to tables where changes are made using new scripts. 
 
 
 ```
