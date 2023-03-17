@@ -23,6 +23,7 @@ It is split into the following sections:
 9. [Formatting PL/SQL and SQL Code](pl_sql_fomatting_code.md)
 10. [General PL/SQL Writing Guidance](pl_sql_general_guidance.md)
 11. [Logging](pl_sql_logging.md)
+12. [Transaction Control](pl_sql_transaction_control.md)
 
 ## Working with Legacy Code
 

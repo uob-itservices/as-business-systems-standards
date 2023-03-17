@@ -5,7 +5,6 @@ This page contains some general guidance on how to approach writing pl/sql, but 
 
 * [Column Aliases](#column-aliases)
 * [SQL Table Joins](#table-joins)
-* [Transaction Control - COMMIT and ROLLBACK](#transaction-control-commit-and-rollback)
 * [Single Responsibility Principle](#single-responsibility-principle)
 * [Conditional Statements](#conditional-statements)
 
@@ -93,35 +92,6 @@ FROM
 ```
 
 ---
-
-## Transaction Control COMMIT and ROLLBACK 
-
-A function or procedure should take a parameter to specify this behavior. This means it can be controlled by the calling code and makes it more flexible.
-
-In your package spec specify constants for commit and rollback:
-
-```sql
-g_COMMIT   CONSTANT NUMBER := 1;
-g_ROLLBACK CONSTANT NUMBER := -1;
-```
-
-Pass this value as a parameter into functions and procedures:
-
-```sql
-PROCEDURE get_transactions(i_commit IN NUMBER)
-```
-
-It can then be used like this:
-
-```sql
-IF p_commit = g_COMMIT THEN
-    DSP.line('package.get_transactions', 'Commit');
-    COMMIT;
-ELSIF p_commit = g_ROLLBACK THEN
-    DSP.line('package.get_transactions', 'Rollback');
-    ROLLBACK;
-END IF;
-```
 
 ## Single Responsibility Principle
 
