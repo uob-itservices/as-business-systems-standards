@@ -28,13 +28,22 @@ t_<name>     : Type
 t_rec_<name> : Record Type
 ```
 
+## Grants and Synonyms
+
+Grants and synonyms for objects should be declared in standalone scripts and not included in the script used to create the object.
+
 ## File Names
   
 Object definitions should be saved to files with the same name as the object using the **.sql** extension, e.g. *as_student_card_details.sql*. 
 
+Grants and synonym scripts should be prefixed with a Jira issue number as these would normally only be run once and are tied to a specific item of work. 
+
 ```
-pw_<name>.sql  : Procedure
-fw_<name>.sql  : Function
-as_<name>.sql  : View
-t_<name>.sql   : Type
+pw_<name>.sql                   --  Procedure
+fw_<name>.sql                   -- Function
+as_<name>.sql                   -- View
+t_<name>.sql                    -- Type
+SSDT-001_pw_<name>_grants.sql   -- Package grants
+SSDT-001_fw_<name>_synonyms.sql -- Package synonyms
 ```
+

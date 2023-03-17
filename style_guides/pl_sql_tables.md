@@ -72,17 +72,25 @@ COMMENT ON COLUMN table.column2 IS 'Column 2 description';
 
 This guidance refers to short lived backup tables created to allow rollback of a set of changes or to capture the state of data at a point of time. It does not refer to oracle global temporary tables. 
 
-The name for temporary tables should always link back to the ServiceNow incident or Jira issue number that they have been created for, for example *srs_001_swradms_table_backup* . 
+The name for temporary tables should always link back to the ServiceNow incident or Jira issue number that they have been created for, for example *SSDT_001_swradms_table_backup* . 
 
 Note that table names cannot contain hyphen ( - ) characters and these should be replaced with an underscore. 
 
 **From a development process perspective, Jira issues should remain open until all temporary tables have been removed from the production database. If there is a compelling reason for these tables to remain in the database, this must be agreed with the team leader / Integrations & Systems Development manager before the Jira issue can be closed.  
 
+
+## Grants and Synonyms
+
+Grants and synonyms for tables should be declared in standalone scripts and not included in the script used to create the table.
+
+
 ## File Names
 
-Scripts that create or update tables should have filenames in the following format, for example ssdt-001_table.sql
+Scripts that create or update tables, synonyms and grants should have filenames in the following format, for example SSDT-001_table.sql.
 
 ```
-ssdt-001_<table_name>.sql        -- Create table script
-ssdt-001_alter_<table_name>.sql  -- Alter table script
+SSDT-001_<table_name>.sql        -- Create table script
+SSDT-001_alter_<table_name>.sql  -- Alter table script
+SSDT-001_<table_name>_grants     -- Grants
+SSDT-001_<table_name>_synonyms   -- Synonyms
 ```

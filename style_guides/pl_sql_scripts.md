@@ -3,19 +3,25 @@
 ## General Guidance
 
 * The overall purpose of a script should be documented in header comments and include any relevant implementation details, e.g. which schema the script should be run in, any permissions that are required.
-* Wherever possible, scripts should be repeatable and handle any expected errors. A script may COMMIT changes automatically, or can output text via dbms_output to indicate to the person running it if a COMMIT should be issued. 
+* Wherever possible, scripts should be repeatable and handle any expected errors. A script may COMMIT changes automatically, or can output text via dbms_output to indicate to the person running it if a COMMIT should be issued.
+
+
+## Grants and Synonyms
+
+Grants and synonyms should be declared in standalone scripts and not included in the script used to create the object.
+
 
 ## File Names
 
-For all other database code filenames should begin with a JiRA issue number:
+For all database scripts filenames should begin with a JiRA issue number, then a description. 
+
+Grants and synonyms should be suffixed with grant/synonym. 
 
 ```
-ssdt-001_<description>.sql  -- All other scripts
+ssdt-001_<description>.sql      -- All other scripts
+SSDT-001_<description>_grants   -- Grants
+SSDT-001_<description>_synonyms -- Synonyms
 ```
-  
-## Grants and Synonyms
-
-**Grants and synonyms for tables and objects should be declared in standalone scripts and not included in the script used to create the object.**
 
 When creating an object you should:
 

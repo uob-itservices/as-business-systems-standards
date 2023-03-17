@@ -35,6 +35,7 @@ Cursor names should be named as follows:
 ```
 c_get_level_m_marks
 ```
+
 Where a cursor accepts parameters these must be explictly defined and not reference subprogram variables available to the cursor.  For example:
 
 ```sql
@@ -47,16 +48,28 @@ SELECT stvterm_code
 ```
 
 
+## Grants and Synonyms
+
+Grants and synonyms for packages should be declared in standalone scripts and not included in the script used to create the package. 
+
+
 ## File Names
 
-Packages should have filenames in the following format, for example pkw_package1.pkb. We do not include a JiRA issue number in filenames for packages because these files may be updated with further changes after the object has been created. This is in contrast to tables where changes are made using new scripts. 
+Packages should have filenames in the following format, for example pkw_package1.pkb. 
+
+We do not include a JiRA issue number in filenames for package code because these files may be updated with further changes after the object has been created. This is in contrast to tables where changes are made using new scripts. 
+
+Grants and synonym scripts should be prefixed with a Jira issue number as these would normally only be run once and are tied to a specific item of work. 
 
 
 ```
-pkw_<name>.pks        -- Package specification
-pkw_<name>.pkb        -- Package body
-pkw_<name>_test.pks   -- UT/PLSQL Test package specification
-pkw_<name>_test.pkb   -- UT/PLSQL Test package body
+pkw_<name>.pks                   -- Package specification
+pkw_<name>.pkb                   -- Package body
+pkw_<name>_test.pks              -- UT/PLSQL Test package specification
+pkw_<name>_test.pkb              -- UT/PLSQL Test package body
+SSDT-001_pkw_<name>_grants.sql   -- Package grants
+SSDT-001_pkw_<name>_synonyms.sql -- Package synonyms 
+
 ```
 
 ## Variable Scope
