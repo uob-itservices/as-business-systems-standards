@@ -14,7 +14,7 @@ We apply some general standards to PL/SQL and SQL code:
 
 Your code must be run through the SQL Developer code formatting tool prior to code review. The simplest way to run this is to open your sql script in SQL Developer and press **CTRL + F7**.
 
-We use the default configuration options for the formatter, so no configuration changes need to be made.  
+A copy of SQL Formatter settings used within the team can be downloaded here: [SQL Developer Formatting Configuration File](sqldeveloper_formatter_settings.xml)
 
 ## Unix Line Endings
 

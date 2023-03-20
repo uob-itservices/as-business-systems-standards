@@ -14,21 +14,21 @@ This page contains some general guidance on how to approach writing pl/sql, but 
 Always alias aggregates and function-wrapped columns:
 
 ```sql
-SELECT
-    name,
-    SUM(amount) AS sum_amount
-FROM ...
+    SELECT
+        name,
+        SUM(amount) AS sum_amount
+    FROM...
 ```
 
 Always alias all columns when selecting with table aliases:
 
 ```sql
-SELECT
-    projects.name AS project_name,
-    COUNT(backings.id) AS backings_count
-FROM 
-    ksr.backings AS backings
-    INNER JOIN ksr.projects AS projects ON ...
+    SELECT
+        projects.name AS project_name,
+        COUNT(backings.id) AS backings_count
+    FROM 
+        ksr.backings AS backings
+        INNER JOIN ksr.projects AS projects ON ...
 ```
 
 Always use `AS` to alias columns:
@@ -36,19 +36,19 @@ Always use `AS` to alias columns:
 __GOOD__:
 
 ```sql
-SELECT
-    projects.name AS project_name,
-    COUNT(backings.id) AS backings_count
-...
+    SELECT
+        projects.name AS project_name,
+        COUNT(backings.id) AS backings_count
+    ...
 ```
 
 __BAD__:
 
 ```sql
-SELECT
-    projects.name project_name,
-    COUNT(backings.id) backings_count
-...
+    SELECT
+        projects.name project_name,
+        COUNT(backings.id) backings_count
+    ...
 ```
 
 Order (`ASC`, `DESC`) should always be explicit. All window functions should be aliased.
@@ -64,31 +64,31 @@ Explicitly use `INNER JOIN` not just `JOIN`, making multiple lines of `INNER JOI
 __GOOD__:
 
 ```sql
-SELECT
-    projects.name      AS project_name,
-    COUNT(backings.id) AS backings_count
-FROM 
-    ksr.projects AS projects
-    INNER JOIN ksr.backings AS backings
-    ON ...
-    LEFT OUTER JOIN ksr.backer_rewards AS backer_rewards 
-    ON ...
-    LEFT OUTER JOIN ...
+    SELECT
+        projects.name      AS project_name,
+        COUNT(backings.id) AS backings_count
+    FROM 
+        ksr.projects AS projects
+        INNER JOIN ksr.backings AS backings
+        ON ...
+        LEFT OUTER JOIN ksr.backer_rewards AS backer_rewards 
+        ON ...
+        LEFT OUTER JOIN ...
 ```
 
 __BAD__:
 
 ```sql
-SELECT
-    projects.name      AS project_name,
-    COUNT(backings.id) AS backings_count
-FROM 
-    ksr.projects AS projects
-    JOIN ksr.backings AS backings 
-    ON ...
-    LEFT OUTER JOIN ksr.backer_rewards AS backer_rewards
-    ON ...
-    LEFT OUTER JOIN ...
+    SELECT
+        projects.name      AS project_name,
+        COUNT(backings.id) AS backings_count
+    FROM 
+        ksr.projects AS projects
+        JOIN ksr.backings AS backings 
+        ON ...
+        LEFT OUTER JOIN ksr.backer_rewards AS backer_rewards
+        ON ...
+        LEFT OUTER JOIN ...
 ```
 
 ---
@@ -109,23 +109,25 @@ For more information on using `CASE` statements, please see [The Difference Betw
 __GOOD__:
 
 ```sql
-dept_desc := 
-    CASE deptno
-        WHEN 10 THEN 'Accounting'
-        WHEN 20 THEN 'Research'
-        ELSE 'Unknown'
-    END;
+    dept_desc :=
+        CASE deptno
+            WHEN 10 THEN
+                'Accounting'
+            WHEN 20 THEN
+                'Research'
+            ELSE 'Unknown'
+        END;
 ```
 
 __BAD__:
 
 ```sql
-IF (deptno = 10) THEN
-    dept_desc := 'Accounting';
-ELSIF (deptno = 20) THEN
-    dept_desc := 'Research';
-ELSE
-    dept_desc := 'Unknown';
-END IF;
+    IF ( deptno = 10 ) THEN
+        dept_desc := 'Accounting';
+    ELSIF ( deptno = 20 ) THEN
+        dept_desc := 'Research';
+    ELSE
+        dept_desc := 'Unknown';
+    END IF;
 ```
 

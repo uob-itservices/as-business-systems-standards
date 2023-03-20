@@ -39,12 +39,12 @@ c_get_level_m_marks
 Where a cursor accepts parameters these must be explictly defined and not reference subprogram variables available to the cursor.  For example:
 
 ```sql
-c_get_term(p_date IN DATE)
-IS 
-SELECT stvterm_code
-  FROM stvterm
- WHERE TRUNC (p_date) BETWEEN TRUNC (stvterm_start_date)
-                          AND TRUNC (stvterm_end_date);
+    c_get_term(p_date IN DATE)
+    IS 
+    SELECT stvterm_code
+      FROM stvterm
+     WHERE TRUNC (p_date) BETWEEN TRUNC (stvterm_start_date)
+                              AND TRUNC (stvterm_end_date);
 ```
 
 

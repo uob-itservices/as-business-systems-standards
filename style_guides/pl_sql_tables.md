@@ -90,7 +90,7 @@ Scripts that create or update tables, synonyms and grants should have filenames 
 
 ```
 SSDT-001_<table_name>.sql        -- Create table script
-SSDT-001_alter_<table_name>.sql  -- Alter table script
+SSDT-001_<table_name>_alter.sql  -- Alter table script
 SSDT-001_<table_name>_grants     -- Grants
 SSDT-001_<table_name>_synonyms   -- Synonyms
 ```
