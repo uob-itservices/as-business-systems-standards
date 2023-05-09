@@ -32,9 +32,9 @@ This document does not pretend to cover every possible eventuality. If use cases
 
 All services MUST return [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON) by default. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML) MAY be available if specifically requested via an Accept header.
 
-## Versioning (Draft)
+## Versioning
 
-Versioning approach currently in review.
+Versioning should follow a date format [yyyy-MM-dd] and be included in a header [Api-Version]. For practicalities sake this does not need to be the release date of the API but can be related to the start of the development of that API version. Each released version the extends or superseeds an existings vesion of an API should have an greater date than any currently released versions.
 
 ## URL Structure
 
