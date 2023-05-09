@@ -211,7 +211,7 @@ APIs should be documented in line with the [OpenAPI Specification](http://spec.o
 
 ## Security (Draft)
 
-This is in draft status and may indicate OAuth 2.0 or OpenID Connect once a decision has been made.
+This is under review. The chosen method may be OAuth 2.0 or OpenID Connect once a decision has been made.
 
 ## Products and Subscriptions
 
