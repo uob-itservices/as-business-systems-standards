@@ -1,3 +1,4 @@
 ## Logging
 
-** To be Updated **
+> [!CAUTION]
+> Not yet documented
