@@ -4,9 +4,10 @@ This page contains some general guidance on how to approach writing pl/sql, but 
 
 
 * [Column Aliases](#column-aliases)
-* [SQL Table Joins](#table-joins)
+* [ANSI SQL Table Joins](#ansi-sql-table-joins)
 * [Single Responsibility Principle](#single-responsibility-principle)
 * [Conditional Statements](#conditional-statements)
+* [Specifying Parameters in Function and Procedure Calls](#specifying-parameters-in-function-and-procedure-calls)
 
 
 ## Column Aliases
@@ -55,7 +56,7 @@ Order (`ASC`, `DESC`) should always be explicit. All window functions should be 
 
 ---
 
-## SQL Table Joins
+## ANSI SQL Table Joins
 
 __USE ANSI JOIN SYNTAX!__
 
@@ -131,3 +132,56 @@ __BAD__:
     END IF;
 ```
 
+## Specifying Parameters in Function and Procedure Calls
+
+When calling procedures and functions Oracle allows you to declare parameters using the following type of notation:
+
+* Positional notation: You specify the same parameters in the same order as they are declared in the procedure. This notation is compact, but you must specify the parameters (especially literals) in the correct order.
+* Named notation: You specify the name of each parameter and its value. An arrow (=>) serves as the association operator. The order of the parameters is not significant.
+* Mixed notation: You specify the first parameters with positional notation, then switch to named notation for the last parameters.
+
+You **must always** use **Named notation** and the => associative operator. This protects your code against future alterations/additions to the parameter order and makes your code more readable.
+
+__Example Procedure__
+
+```sql
+    ----------------------------------------------------------------------------
+    -- SSDT-533: Calculate student profiling result for UNITS based calculation
+    PROCEDURE pw_combined_units_profiling_calculation (
+        p_borderline      OUT VARCHAR2,
+        p_eligible        OUT VARCHAR2,
+        p_new_deg_class   OUT swbdegc.swbdegc_recommended_class%TYPE,
+        p_new_honr_code   OUT swbense.swbense_honr_code%TYPE)
+    ----------------------------------------------------------------------------
+```
+
+__GOOD__:
+
+_Named notation_
+```sql
+        pw_combined_units_profiling_calculation (
+            p_borderline      => v_borderline_units,
+            p_eligible        => v_eligible_units,
+            p_new_deg_class   => v_deg_class_units,
+            p_new_honr_code   => v_honr_code_units);
+```
+
+__BAD__:
+
+_Positional notation_
+```
+        pw_combined_units_profiling_calculation (
+            v_borderline_units,
+            v_eligible_units,
+            v_deg_class_units,
+            v_honr_code_units);
+```
+
+_Mixed notation_
+```
+        pw_combined_units_profiling_calculation (
+            v_borderline_units,
+            p_new_honr_code   => v_honr_code_units,
+            p_eligible        => v_eligible_units,
+            p_new_deg_class   => v_deg_class_units);
+```
