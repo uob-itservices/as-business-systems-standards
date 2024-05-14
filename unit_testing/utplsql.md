@@ -49,30 +49,38 @@ These are identified in the package body using annotations similar to those used
 
     CREATE OR REPLACE PACKAGE BANDEV.PKW_TEST_SWBDIVD
     AS
-    /*
-    ---------------------------------------------------------------------------------
-    Change History
-    Version 	Date		Change  		Initials
-    1.0 		03/10/18	Initial Version AH
-    ---------------------------------------------------------------------------------
-    */
     
-    --%suite(Test SWBDIVD View)
+        /**
+          * Provides data for some module
+          * Created as part of SSDT-001
+          *
+          * @author Joe Bloggs <email1@bham.ac.uk>
+          *
+         * @see https://bitbucket.org/great_repo
+         */ 
+     
+        /**
+          * History
+          * 
+          * 2019-01-15     SSDT-001    Joe Bloggs      Package created
+          */
     
-    --%test(Test SWBDIVD View)
-    PROCEDURE PW_TEST_SWBDIVD;
+       --%suite(Test SWBDIVD View)
     
-    --%test(Test SWBDIVD INSERT via SKVSSDT)
-    PROCEDURE PW_TEST_INSERT_SWBDIVD;
+       --%test(Test SWBDIVD View)
+       PROCEDURE PW_TEST_SWBDIVD;
     
-    --%test(Test FUNCTION fw_get_div)
-    PROCEDURE PW_TEST_DIV_CODE;
+       --%test(Test SWBDIVD INSERT via SKVSSDT)
+       PROCEDURE PW_TEST_INSERT_SWBDIVD;
     
-    --%test(Test VIEW BANDEV.AS_BHAM_DEPARTMENT)
-    PROCEDURE PW_TEST_AS_BHAM_DEPARTMENT;
+       --%test(Test FUNCTION fw_get_div)
+       PROCEDURE PW_TEST_DIV_CODE;
+    
+       --%test(Test VIEW BANDEV.AS_BHAM_DEPARTMENT)
+       PROCEDURE PW_TEST_AS_BHAM_DEPARTMENT;
 
-    FUNCTION FW_GET_RANDOM_SWBDIVD_DIV_CODE
-        RETURN VARCHAR;
+       FUNCTION FW_GET_RANDOM_SWBDIVD_DIV_CODE
+           RETURN VARCHAR;
 
 
 Annotations are also used to indicate when procedures should be run, for example to create and tear down data in preparation for running a test. Some examples are:
@@ -100,17 +108,23 @@ For example, the below procedure PW\_TEST\_DIV\_CODE will use  ```ut.expect```  
 **There are a number of evaluation types available in utPLSQL, which are documented here: [http://utplsql.org/utPLSQL/latest/userguide/expectations.html](http://utplsql.org/utPLSQL/latest/userguide/expectations.html)**
 
 	
-	/* Package of tests for Banner 9 - SWBDIVD */
 	CREATE OR REPLACE PACKAGE BODY BANDEV.PKW_TEST_SWBDIVD
 	AS
-	    /*
-	    ---------------------------------------------------------------------------------
-	    Change History
-	    Version     Date        Change                                      Initials
-	    1.0         03/10/18    Initial Version                             AH
-	    ---------------------------------------------------------------------------------
-	    */
-	
+ 
+        /**
+          * Provides data for some module
+          * Created as part of SSDT-001
+          *
+          * @author Joe Bloggs <email1@bham.ac.uk>
+          *
+         * @see https://bitbucket.org/great_repo
+         */ 
+     
+        /**
+          * History
+          * 
+          * 2019-01-15     SSDT-001    Joe Bloggs      Package created
+          */
 	
 	    PROCEDURE PW_TEST_DIV_CODE
 	    IS
