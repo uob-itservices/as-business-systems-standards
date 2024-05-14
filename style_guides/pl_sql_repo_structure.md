@@ -17,9 +17,10 @@ repository_root_folder
     views
     tables
     types
+    data - all data insert, update and delete scripts
     apex - APEX application exports
     jobs - database schedules
-    scripts - all data update scripts
+    scripts - unix scripts
     tests - all test code, including utplsql packages
     ords - Anything relating to ords API setup
 ```    
