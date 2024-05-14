@@ -16,7 +16,7 @@ It is split into the following sections:
 2. [Tables](pl_sql_tables.md)
 3. [Packages](pl_sql_packages.md)
 4. [Triggers](pl_sql_triggers.md)
-5. [Other Objects](pl_sql_other_objects.md)
+5. [Other Objects and APEX Application Exports](pl_sql_other_objects.md)
 6. [Scripts](pl_sql_scripts.md)
 7. [Comments and Change History](pl_sql_comments_history.md)
 8. [Repository Directory Structure](pl_sql_repo_structure.md) 
