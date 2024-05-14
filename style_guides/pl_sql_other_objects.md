@@ -47,3 +47,15 @@ SSDT-001_pw_<name>_grants.sql   -- Package grants
 SSDT-001_fw_<name>_synonyms.sql -- Package synonyms
 ```
 
+## APEX Application File Names
+
+Application files exported from APEX should use the folliwing naming pattern. As with other object scripts APEX application files SHOULD NOT include the Jira issue number they were initially introduced as part of and the same file should be updated in source control each time that the application is altered. 
+
+>[!IMPORTANT]
+>Your application must retain the same application ID in all environments and it is important that new applications DO NOT reuse an existing application ID
+
+```
+[application_id]_[descriptive_name].sql
+```
+
+
