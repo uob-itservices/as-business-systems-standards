@@ -6,7 +6,7 @@ The following naming conventions should be used for database packages:
 
 ```
 pkw_<name>        -- Package
-pkw_<name>_test   -- UT/PLSQL Test package
+pkw_test_<name>   -- UT/PLSQL Test package
 ```
 
 ## Package Procedures and Functions
