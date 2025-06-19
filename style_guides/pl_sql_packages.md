@@ -63,10 +63,10 @@ Grants and synonym scripts should be prefixed with a Jira issue number as these 
 
 
 ```
-pkw_<name>.pks                   -- Package specification
-pkw_<name>.pkb                   -- Package body
-pkw_<name>_test.pks              -- UT/PLSQL Test package specification
-pkw_<name>_test.pkb              -- UT/PLSQL Test package body
+pkw_<name>_spec.sql                   -- Package specification
+pkw_<name>_body.sql                   -- Package body
+pkw_<name>_test_spec.sql              -- UT/PLSQL Test package specification
+pkw_<name>_test_body.sql              -- UT/PLSQL Test package body
 SSDT-001_pkw_<name>_grants.sql   -- Package grants
 SSDT-001_pkw_<name>_synonyms.sql -- Package synonyms 
 
