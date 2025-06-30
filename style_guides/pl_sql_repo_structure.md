@@ -33,6 +33,7 @@ repository_root_folder
       scripts - Any other scripts
       tests - all test code, including utplsql packages
       ords - Anything relating to ords API setup
+      deployment - release deployment scripts
 ```    
    
 An example directory structure for a repository called **great_stuff_repo** :
@@ -62,5 +63,10 @@ great_stuff_repo
 
      pkw_test_great_stuff_spec.sql
      pkw_test_great_stuff_body.sql
+
+  deployment
+
+     ssdt-1234-release.sql
+
  ```
 
