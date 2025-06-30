@@ -39,12 +39,12 @@ Object definitions should be saved to files with the same name as the object usi
 Grants and synonym scripts should be prefixed with a Jira issue number as these would normally only be run once and are tied to a specific item of work. 
 
 ```
-pw_<name>.sql                   --  Procedure
-fw_<name>.sql                   -- Function
-as_<name>.sql                   -- View
-t_<name>.sql                    -- Type
-SSDT-001_pw_<name>_grants.sql   -- Package grants
-SSDT-001_fw_<name>_synonyms.sql -- Package synonyms
+pw_<name>.sql                               --  Procedure
+fw_<name>.sql                               -- Function
+as_<name>.sql                               -- View
+t_<name>.sql                                -- Type
+SSDT-001_[pkw|fw|pw]_pw_<name>_grants.sql   -- Object grants
+SSDT-001_[pkw|fw|pw]_<name>_synonyms.sql    -- Object synonyms
 ```
 
 ## APEX Application File Names
