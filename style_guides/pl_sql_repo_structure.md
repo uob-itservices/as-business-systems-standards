@@ -45,8 +45,8 @@ great_stuff_repo
 
   packages
 	
-      pkw_great_stuff.pks
-      pkw_great_stuff.pkb
+      pkw_great_stuff_spec.sql
+      pkw_great_stuff_body.sql
       pkw_great_stuff_more_functionality_spec.sql
       pkw_great_stuff_more_functionality_body.sql
 
