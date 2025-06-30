@@ -47,8 +47,8 @@ great_stuff_repo
 	
       pkw_great_stuff.pks
       pkw_great_stuff.pkb
-      pkw_great_stuff_more_functionality.pkb
-      pkw_great_stuff_more_functionality.pks
+      pkw_great_stuff_more_functionality_spec.sql
+      pkw_great_stuff_more_functionality_body.sql
 
   triggers
 
