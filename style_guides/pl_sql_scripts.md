@@ -2,10 +2,11 @@
 
 ## General Guidance
 
-* The overall purpose of a script should be documented in header comments and include any relevant implementation details, e.g. which schema the script should be run in, any permissions that are required.
-* Where the script may take some time to complete, the script header and associated deployment document / TCD should also give an indication of how long it will take.
-* Where practical the execution of any long running script can be completed asynchronously by creating a dbms_scheduler job that can be run once.  
-* Wherever possible scripts should be repeatable and handle any expected errors. A script may COMMIT changes automatically, or can output text via dbms_output to indicate to the person running it if a COMMIT should be issued.
+* Database scripts can include insert, update or deletes as well as pl/sql, but in most cases should not include both. If you are INSERTing data then running pl/sql logic that uses that data, break this up into multiple scripts.
+* Wherever possible scripts should be repeatable and handle any expected errors. At the developers discretion a script may COMMIT changes automatically, or can output text via dbms_output to indicate to the person running it if a COMMIT should be issued.
+* The overall purpose of a script should be documented in the header comments and include any relevant implementation details, e.g. which schema the script should be run in, any permissions that are required.
+* Where the script may take some time to complete, the script header and associated deployment document / TCD should also give an indication of how long it will take to run.
+* At the developers discretion a long running script can be executed asynchronously by creating a dbms_scheduler job set to run once.
 
 
 ## Grants and Synonyms
@@ -30,3 +31,4 @@ When creating an object you should:
 * Consider what access is required and to which users. Do not grant broad access *'just in case'* or copy/paste permissions from other objects without considering if that is appropriate. 
 
 * Consider whether a synonym is required. Does your table or object need to be referenced outside of the schema it has been created in and could references simply include the schema?
+
