@@ -32,9 +32,9 @@ This document does not pretend to cover every possible eventuality. If use cases
 
 All services MUST return [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON) by default. [Extensible Markup Language (XML)](https://en.wikipedia.org/wiki/XML) MAY be available if specifically requested via an Accept header.
 
-## Versioning (Draft)
+## Versioning
 
-Versioning approach currently in review.
+Versioning should follow a date format [yyyy-MM-dd] and be included in a header [Api-Version]. For practicalities sake this does not need to be the release date of the API but can be related to the start of the development of that API version. Each released version the extends or superseeds an existings vesion of an API should have an greater date than any currently released versions.
 
 ## URL Structure
 
@@ -156,6 +156,9 @@ XML example:
 
 Pagination is supported in the standard response format and MUST be supported in all APIs. The properties included in the return structure of `page_number`, `page_size` and `has_more` inform clients about where they are in the data set and if more data is available.
 
+The pagenation object must be included in all data response payloads, even if there is only one or zero results in the returned collection.
+If a result contains no items the status tag may show "no content"; however, the actual http status will not be "No Content" as the pagenation object is being returned.
+
 Clients can request different pages of data by using query parameters:
 
 | Parameter | Type | Default | Description                        |
@@ -195,7 +198,7 @@ Content-Language: en
 * detail (string): A human-readable explanation about the problem.
 * status (number): HTTP Status Code.
 * instance (string): A URI reference that identifies the specific occurrence of the problem.
-    
+
 For more details on this approach please refer to the RFC.
 
 ## Status Codes
@@ -207,4 +210,13 @@ Standard HTTP Status Codes MUST be used; see the HTTP Status Code definitions fo
 APIs should be documented in line with the [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3).
 
 ## Security (Draft)
-TODO
+
+This is under review. The chosen method may be OAuth 2.0 or OpenID Connect once a decision has been made.
+
+## Products and Subscriptions
+
+Products should be created to represent each end user systems of one or more APIs. This is to allow separate subscriptions to be created for use by these systems. This allows tracking of which system is using an api (which may be shared) and to what extent.
+
+The preferred method for passing the subscription key is via header "Ocp-Apim-Subscription-Key".
+
+It can also be passed as a query parameter "subscription-key".
